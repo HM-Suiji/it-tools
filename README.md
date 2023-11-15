@@ -34,3 +34,15 @@ You can check out [the Next.js GitHub repository](https://github.com/vercel/next
 The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
 
 Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+
+---
+
+### 📁 app(pages)/tools
+
+- `uuid` 获取 uuid / guid
+- `base-conversation` 进制转换
+- `date-format` 时间格式化
+- `id-cards` 身份证校验
+- `base64-image` 图片 与 base64 转换
+- `hearing-test` 听力范围测试
+- `qr-code` 二维码生成
