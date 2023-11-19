@@ -20,7 +20,7 @@ bun dev
 
 ### 📁 app(pages)/tools
 
-- `uuid` 获取 uuid / guid
+- `uuid` 获取 uuid
 - `base-conversation` 进制转换
 - `date-format` 时间格式化
 - `id-cards` 身份证校验
