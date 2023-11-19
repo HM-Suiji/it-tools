@@ -1,7 +1,5 @@
-import UuidContent from '@/components/UuidContent'
-
 const Uuid: React.FC = () => {
-	return <UuidContent />
+	return <>uuid</>
 }
 
 export default Uuid
