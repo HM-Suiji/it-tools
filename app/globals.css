@@ -3,9 +3,9 @@
 @tailwind utilities;
 
 :root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
+	--foreground-rgb: 0, 0, 0;
+	--background-start-rgb: 214, 219, 220;
+	--background-end-rgb: 255, 255, 255;
 }
 
 /* @media (prefers-color-scheme: dark) {
@@ -25,3 +25,16 @@ body {
     )
     rgb(var(--background-start-rgb));
 } */
+
+.large-3 {
+	width: calc(25% - 1.875rem);
+}
+
+.cell {
+	-webkit-box-flex: 0;
+	-webkit-flex: 0 0 auto;
+	flex: 0 0 auto;
+	min-height: 0;
+	min-width: 0;
+	width: 100%;
+}
