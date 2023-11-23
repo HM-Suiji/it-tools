@@ -57,23 +57,27 @@ const ToolsLayout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
 					</div>
 				</div>
 			</Header>
-			<Header style={headerStyle}>Header</Header>
-			<Layout className="md:grid md:grid-cols-4" hasSider={!isMobile}>
-				<Content className="md:col-span-3 !w-full" style={contentStyle}>
-					<div className="pr-4 pl-4">{children}</div>
-				</Content>
-				{!isMobile && (
-					<Sider
-						theme="light"
-						width="auto"
-						className="md:col-span-1"
-						collapsedWidth={0}
-						style={siderStyle}>
-						<Calendar />
-					</Sider>
-				)}
-			</Layout>
-			<Footer style={footerStyle}>Footer</Footer>
+			<div className="container self-center">
+				<Header style={headerStyle}>Header</Header>
+				<Layout className="md:grid md:grid-cols-4" hasSider={!isMobile}>
+					<Content className="md:col-span-3 !w-full" style={contentStyle}>
+						<div className="pr-4 pl-4">{children}</div>
+					</Content>
+					{!isMobile && (
+						<Sider
+							theme="light"
+							width="auto"
+							className="md:col-span-1"
+							collapsedWidth={0}
+							style={siderStyle}>
+							<Calendar />
+						</Sider>
+					)}
+				</Layout>
+			</div>
+			<Footer className="fixed bottom-0 w-full" style={footerStyle}>
+				Footer
+			</Footer>
 		</Layout>
 	)
 }

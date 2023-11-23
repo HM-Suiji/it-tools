@@ -1,7 +1,7 @@
 .my-calendar {
   .shell {
     position: relative;
-    width: 520px;
+    width: 80%;
     border-radius: 0 0 1em 1em;
     box-shadow: 0 19px 38px rgba(0, 0, 0, 0.2), 0 15px 12px rgba(0, 0, 0, 0.2);
   }
@@ -10,14 +10,14 @@
     border-radius: 1em 1em 0 0;
     background: #e66b6b;
     color: #fff;
-    padding: 3em 2em;
+    padding: 0em 0.6em;
     background-image: url(calendar-01.gif);
     background-size: cover;
   }
 
   .day {
     font-size: 8em;
-    font-weight: 900;
+    font-weight: 750;
     line-height: 1em;
   }
 
@@ -47,8 +47,8 @@
   }
 
   .calendar td {
-    width: 60px;
-    height: 60px;
+    width: 39px;
+    height: 39px;
     border-radius: 50%;
     text-align: center;
     font: 600 17px '';
@@ -68,31 +68,5 @@
   .prev-month,
   .next-month {
     color: #cacaca;
-  }
-
-  .ring-left,
-  .ring-right {
-    position: absolute;
-    top: 265px;
-  }
-
-  .ring-left {
-    left: 2em;
-  }
-
-  .ring-right {
-    right: 2em;
-  }
-
-  .ring-left:before,
-  .ring-right:before {
-    background: #fff;
-    border-radius: 4px;
-    box-shadow: 0 3px 1px rgba(0, 0, 0, .3), 0 -1px 1px rgba(0, 0, 0, .2);
-    content: "";
-    display: inline-block;
-    margin: 8px;
-    height: 32px;
-    width: 8px;
   }
 }
