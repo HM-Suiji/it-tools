@@ -8,9 +8,11 @@ import {
 	siderStyle,
 	rootHeaderStyle,
 } from '@/assets/style/layoutStyle'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { useRouter } from 'next/navigation'
 import Link from 'next/link'
+import { isMobile as _isMobile } from '@/utils'
+import { Calendar } from '@/components'
 
 const { Header, Footer, Sider, Content } = Layout
 
@@ -27,6 +29,7 @@ const menuItems: MenuProps['items'] = [
 
 const ToolsLayout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
 	const [current, setCurrent] = useState('mail')
+	const [isMobile, setIsMobile] = useState(false)
 	const router = useRouter()
 
 	const onClickMenu: MenuProps['onClick'] = (e) => {
@@ -34,6 +37,7 @@ const ToolsLayout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
 		setCurrent(e.key)
 		router.push(e.key)
 	}
+	useEffect(() => setIsMobile(_isMobile(window)), [])
 
 	return (
 		<Layout style={{ height: '100vh' }}>
@@ -54,11 +58,20 @@ const ToolsLayout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
 				</div>
 			</Header>
 			<Header style={headerStyle}>Header</Header>
-			<Layout hasSider>
-				<Content style={contentStyle}>
+			<Layout className="md:grid md:grid-cols-4" hasSider={!isMobile}>
+				<Content className="md:col-span-3 !w-full" style={contentStyle}>
 					<div className="pr-4 pl-4">{children}</div>
 				</Content>
-				<Sider style={siderStyle}>Sider</Sider>
+				{!isMobile && (
+					<Sider
+						theme="light"
+						width="auto"
+						className="md:col-span-1"
+						collapsedWidth={0}
+						style={siderStyle}>
+						<Calendar />
+					</Sider>
+				)}
 			</Layout>
 			<Footer style={footerStyle}>Footer</Footer>
 		</Layout>
