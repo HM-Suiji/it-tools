@@ -61,9 +61,9 @@ function GenerateCalendar() {
 	return calendarRows
 }
 
-const Calendar: React.FC = () => {
+export const Calendar: React.FC<{ className?: string }> = ({ className }) => {
 	return (
-		<div className="my-calendar">
+		<div className={`my-calendar ${className}`}>
 			<div className="shell">
 				<header>
 					<div className="day">11</div>
@@ -89,5 +89,3 @@ const Calendar: React.FC = () => {
 		</div>
 	)
 }
-
-export { Calendar }

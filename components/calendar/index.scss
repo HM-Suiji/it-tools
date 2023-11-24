@@ -1,7 +1,7 @@
 .my-calendar {
   .shell {
     position: relative;
-    width: 80%;
+    width: 100%;
     border-radius: 0 0 1em 1em;
     box-shadow: 0 19px 38px rgba(0, 0, 0, 0.2), 0 15px 12px rgba(0, 0, 0, 0.2);
   }
@@ -11,7 +11,7 @@
     background: #e66b6b;
     color: #fff;
     padding: 0em 0.6em;
-    background-image: url(calendar-01.gif);
+    background-image: url(img/calendar-01.gif);
     background-size: cover;
   }
 

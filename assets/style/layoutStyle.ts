@@ -1,5 +1,4 @@
 const rootHeaderStyle: React.CSSProperties = {
-	height: 40,
 	paddingInline: 0,
 	lineHeight: '40px',
 	backgroundColor: '#ffffff',
@@ -22,17 +21,10 @@ const contentStyle: React.CSSProperties = {
 	backgroundColor: '#108ee9',
 }
 
-const siderStyle: React.CSSProperties = {
-	textAlign: 'center',
-	lineHeight: '120px',
-	color: '#fff',
-	backgroundColor: '#3ba0e9',
-}
-
 const footerStyle: React.CSSProperties = {
 	textAlign: 'center',
 	color: '#fff',
 	backgroundColor: '#7dbcea',
 }
 
-export { rootHeaderStyle, headerStyle, contentStyle, siderStyle, footerStyle }
+export { rootHeaderStyle, headerStyle, contentStyle, footerStyle }
