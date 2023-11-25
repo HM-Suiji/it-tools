@@ -18,11 +18,11 @@ export default function Home() {
 				renderItem={(item, index) => (
 					<List.Item>
 						<List.Item.Meta
-							avatar={
-								<Avatar
-									src={`https://xsgames.co/randomusers/avatar.php?g=pixel&key=${index}`}
-								/>
-							}
+							// avatar={
+							// 	<Avatar
+							// 		src={`https://xsgames.co/randomusers/avatar.php?g=pixel&key=${index}`}
+							// 	/>
+							// }
 							title={<Link href={item.title}>{item.title}</Link>}
 							description={item.description}
 						/>

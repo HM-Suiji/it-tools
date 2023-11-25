@@ -1,8 +1,9 @@
 {
   "uuid": [
-    "获取 uuid"
+    "在线随机UUID生成器",
+    "uuid,随机,生成器"
   ],
-  "base-conversation": [
+  "base-conversion": [
     "进制转换"
   ],
   "date-format": [

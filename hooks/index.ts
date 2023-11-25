@@ -1,0 +1,1 @@
+export { useMetaData } from './useMetaData'

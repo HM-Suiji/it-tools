@@ -27,5 +27,5 @@ body {
 } */
 
 .normal-shadow {
-	box-shadow: 2px 2px 6px #eaeaea;
+	box-shadow: 2px 2px 6px #eaeaea !important;
 }

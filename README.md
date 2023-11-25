@@ -21,7 +21,7 @@ bun dev
 ### 📁 app(pages)/tools
 
 - `uuid` 获取 uuid
-- `base-conversation` 进制转换
+- `base-conversion` 进制转换
 - `date-format` 时间格式化
 - `id-cards` 身份证校验
 - `base64-image` 图片 与 base64 转换
