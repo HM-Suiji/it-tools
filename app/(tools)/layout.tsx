@@ -78,7 +78,7 @@ const ToolsLayout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
 					/>
 				</Header>
 				<Layout className="md:grid md:grid-cols-4 h-full" hasSider={!isMobile}>
-					<Content className="md:col-span-3 !w-full text-center leading-[120px] bg-[#108ee9]">
+					<Content className="md:col-span-3 !w-full text-center bg-[#108ee9]">
 						<div className="pr-4 pl-4">{children}</div>
 					</Content>
 					{!isMobile && (

@@ -7,13 +7,17 @@ export const Clock: React.FC = () => {
 	const [deg, setDeg] = useState([0, 0, 0])
 
 	useEffect(() => {
-		setInterval(() => {
+		const timer = setInterval(() => {
 			const now = new Date()
 			const h = now.getHours() * 30
 			const m = now.getMinutes() * 6
 			const s = now.getSeconds() * 6
 			setDeg([h, m, s])
 		}, 1000)
+		return () => {
+			// 卸载计时器
+			clearInterval(timer)
+		}
 	}, [])
 
 	return (

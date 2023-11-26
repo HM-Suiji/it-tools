@@ -1,6 +1,6 @@
 import './index.scss'
 
-function GenerateCalendar() {
+const GenerateCalendar = () => {
 	const date = new Date()
 	const daysInMonth = new Date(
 		date.getFullYear(),
@@ -27,7 +27,7 @@ function GenerateCalendar() {
 		const cells = []
 
 		// 生成前一个月的日期
-		for (let j = 0; j < 7; j++) {
+		for (let j = 0; j < 6; j++) {
 			if (i === 0 && j < firstDayOfMonth) {
 				cells.push(
 					<td key={`prev-${j}`} className="prev-month">

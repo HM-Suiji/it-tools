@@ -1,6 +1,6 @@
 'use client'
 
-import { baseConverse } from '@/utils'
+import { baseConverse, debounce } from '@/utils'
 import { Input } from 'antd'
 import { useEffect, useState } from 'react'
 
@@ -9,10 +9,14 @@ const BaseConversion: React.FC = () => {
 	const [baseMap, setBaseMap] = useState<number[]>([])
 	const [resultNum, setResultNum] = useState('')
 
-	useEffect(() => {
-		baseConverse(number, baseMap[0], baseMap[1], (res: string) =>
+	const debounceBaseConverse = debounce(() => {
+		baseConverse(number, baseMap[0], baseMap[1], (res: string) => {
 			setResultNum(res)
-		)
+		})
+	}, 1000)
+
+	useEffect(() => {
+		debounceBaseConverse()
 	}, [number, baseMap])
 
 	return (
