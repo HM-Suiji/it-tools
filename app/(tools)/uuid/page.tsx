@@ -1,11 +1,13 @@
 import { useMetaData } from '@/hooks'
 import { Metadata } from 'next'
-import { uuid } from '@/assets/json/tools.json'
+import { http } from '@/utils'
+
+const meta = await http('/meta/uuid')
 
 export const metadata: Metadata = useMetaData({
-	title: uuid[0],
-	keywords: uuid[1],
-	description: uuid[2],
+	title: meta[0],
+	keywords: meta[1],
+	description: meta[2],
 })
 
 const Uuid: React.FC = () => {

@@ -6,7 +6,7 @@ import { useEffect, useState } from 'react'
 import { useRouter } from 'next/navigation'
 import Link from 'next/link'
 import { isMobile as _isMobile } from '@/utils'
-import { Calendar, ToolTags } from '@/components'
+import { Calendar, Clock, ToolTags } from '@/components'
 import './index.scss'
 
 const { Header, Footer, Sider, Content } = Layout
@@ -87,6 +87,7 @@ const ToolsLayout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
 							width="auto"
 							className="md:col-span-1 text-center mx-[15px] !bg-[rgba(255,255,255,0)]"
 							collapsedWidth={0}>
+							<Clock />
 							<Calendar className="flex justify-center mt-8 mb-8" />
 							<div className="block p-4 bg-[#f0fff0] text-[#016c01] text-sm normal-shadow">
 								本工具数据均在本地浏览器处理，不会上传到网络服务器中，
