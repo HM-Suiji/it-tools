@@ -29,7 +29,7 @@ export const ToolTags: React.FC<{ tags?: TagProps }> = ({ tags }) =>
 			)
 		}
 		return (
-			<Link key={uuid()} href={`/tag/${item}`}>
+			<Link key={uuid()} href={`/tags/${item}`}>
 				<Tag color={color[simpleHash(item) % 11]}>{item}</Tag>
 			</Link>
 		)

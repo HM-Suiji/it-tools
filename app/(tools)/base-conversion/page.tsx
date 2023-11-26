@@ -1,16 +1,19 @@
-import { useMetaData } from '@/hooks'
-import { Metadata } from 'next'
-import { http } from '@/utils'
+'use client'
 
-const meta = await http('/meta/base-conversion')
+import { Input } from 'antd'
+import { useState } from 'react'
 
-export const metadata: Metadata = useMetaData({
-	title: meta[0],
-	keywords: meta[1],
-	description: meta[2],
-})
 const BaseConversion: React.FC = () => {
-	return <>BaseConversion</>
+	const [number, setNumber] = useState(0)
+	return (
+		<>
+			<Input
+				placeholder="请输入一个数字"
+				type="number"
+				value={number}
+				onChange={(e) => setNumber(Number(e.target.value))}></Input>
+		</>
+	)
 }
 
 export default BaseConversion

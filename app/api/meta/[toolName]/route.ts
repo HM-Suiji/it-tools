@@ -1,7 +1,7 @@
 import toolsMeta from '@/assets/json/tools.json'
 
 export async function GET(
-	request: Request,
+	_request: Request,
 	{
 		params,
 	}: {

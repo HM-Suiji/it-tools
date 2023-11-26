@@ -27,8 +27,7 @@ export default function Home() {
 							description={item.description}
 						/>
 					</List.Item>
-				)}
-			/>
+				)}></List>
 		</div>
 	)
 }
