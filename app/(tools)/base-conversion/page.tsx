@@ -4,19 +4,17 @@ import { baseConverse, debounce } from '@/utils'
 import { Input } from 'antd'
 import { useEffect, useState } from 'react'
 
+const debounceBaseConverse = debounce(baseConverse, 1000)
+
 const BaseConversion: React.FC = () => {
 	const [number, setNumber] = useState('')
 	const [baseMap, setBaseMap] = useState<number[]>([])
 	const [resultNum, setResultNum] = useState('')
 
-	const debounceBaseConverse = debounce(() => {
-		baseConverse(number, baseMap[0], baseMap[1], (res: string) => {
+	useEffect(() => {
+		debounceBaseConverse(number, baseMap[0], baseMap[1], (res: string) => {
 			setResultNum(res)
 		})
-	}, 1000)
-
-	useEffect(() => {
-		debounceBaseConverse()
 	}, [number, baseMap])
 
 	return (

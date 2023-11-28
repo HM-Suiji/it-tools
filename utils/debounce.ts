@@ -4,10 +4,15 @@
  * @param delay
  * @returns
  */
-const debounce = (func: Function, delay = 1000) => {
+function debounce<A extends any[], R>(
+	func: (...args: A) => R,
+	delay: number = 1000
+): (...args: A) => void {
 	let timer: string | number | NodeJS.Timeout | undefined
-	return (...args: any) => {
-		clearTimeout(timer)
+	return (...args) => {
+		if (timer) {
+			clearTimeout(timer)
+		}
 		timer = setTimeout(() => func(...args), delay)
 	}
 }
