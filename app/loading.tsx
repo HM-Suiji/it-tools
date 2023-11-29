@@ -1,4 +1,23 @@
+'use client'
+
+import { useEffect, useState } from 'react'
+
 const Loading: React.FC = () => {
+	const [dots, setDots] = useState('')
+	useEffect(() => {
+		const timer = setInterval(() => {
+			setDots((dots) => {
+				if (dots.length < 3) {
+					return dots + '.'
+				} else return '.'
+			})
+		}, 800)
+
+		return () => {
+			clearInterval(timer)
+		}
+	}, [])
+
 	return (
 		<div className="loading">
 			<div className="all">
@@ -56,7 +75,7 @@ const Loading: React.FC = () => {
 				</div>
 
 				{/* loading 动画 */}
-				<h1>Loading</h1>
+				<h1>Loading{dots}</h1>
 			</div>
 		</div>
 	)
