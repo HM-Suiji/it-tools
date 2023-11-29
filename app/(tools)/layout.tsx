@@ -85,10 +85,10 @@ const ToolsLayout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
 						<Sider
 							theme="light"
 							width="auto"
-							className="md:col-span-1 text-center mx-[15px] !bg-[rgba(255,255,255,0)]"
+							className="md:col-span-1 text-center flex justify-center mx-[15px] !bg-[rgba(255,255,255,0)]"
 							collapsedWidth={0}>
 							<Clock />
-							<Calendar className="flex justify-center mt-8 mb-8" />
+							<Calendar className="flex justify-center mt-8 mb-8 mx-auto" />
 							<div className="block p-4 bg-[#f0fff0] text-[#016c01] text-sm normal-shadow">
 								本工具数据均在本地浏览器处理，不会上传到网络服务器中，
 								请放心使用！
