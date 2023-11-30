@@ -1,5 +1,6 @@
 'use client'
 
+import '@/assets/style/loading.scss'
 import { useEffect, useState } from 'react'
 
 const Loading: React.FC = () => {

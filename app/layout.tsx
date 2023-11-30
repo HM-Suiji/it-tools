@@ -1,6 +1,5 @@
 import type { Metadata } from 'next'
 import './globals.css'
-import './loading.scss'
 
 import StyledComponentsRegistry from '../lib/AntdRegistry'
 import { ConfigProvider } from 'antd'
