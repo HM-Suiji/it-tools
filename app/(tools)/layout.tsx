@@ -29,7 +29,6 @@ const ToolsLayout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
 	const router = useRouter()
 
 	const onClickMenu: MenuProps['onClick'] = (e) => {
-		console.log('click ', e)
 		setCurrent(e.key)
 		router.push(e.key)
 	}
