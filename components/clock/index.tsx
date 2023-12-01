@@ -16,7 +16,9 @@ export const Clock: React.FC = () => {
 		}, 1000)
 		return () => {
 			// 卸载计时器
-			clearInterval(timer)
+			if (timer) {
+				clearInterval(timer)
+			}
 		}
 	}, [])
 
