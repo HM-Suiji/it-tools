@@ -8,7 +8,8 @@ const Uuid: React.FC = () => {
 	const [uuid, setUuid] = useState([])
 
 	const randomUUID = async () => {
-		setUuid(await (await fetch('http://localhost/api/uuid?time=4')).json())
+		// setUuid(await (await fetch('http://localhost/api/uuid?time=4')).json())
+		setUuid(await http('/uuid?time=4'))
 	}
 
 	return (

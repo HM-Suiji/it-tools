@@ -70,7 +70,7 @@ const HearingTest: React.FC = () => {
 		if (oscillator) {
 			oscillator.stop()
 			oscillator.disconnect()
-			setCurrentFrequency(0)
+			// setCurrentFrequency(0)
 			oscillatorRef.current.oscillator = null
 		}
 	}
@@ -83,8 +83,7 @@ const HearingTest: React.FC = () => {
 			<button onClick={stopTest} disabled={!isTesting}>
 				暂停测试
 			</button>
-			{isTesting && <p>当前频率: {currentFrequency} Hz</p>}
-			{currentFrequency}
+			<p>当前频率: {currentFrequency} Hz</p>
 		</div>
 	)
 }

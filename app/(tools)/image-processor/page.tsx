@@ -48,10 +48,10 @@ const ImageProcessor = () => {
 
 			<br />
 
-			{/* {base64String} */}
-
 			{/* 显示上传的图片 */}
-			<textarea>{imageUrl}</textarea>
+			<div className="w-full h-20 overflow-x-scroll whitespace-normal">
+				{imageUrl}
+			</div>
 			{imageUrl && (
 				<img src={imageUrl} alt="Uploaded" style={{ maxWidth: '100%' }} />
 			)}

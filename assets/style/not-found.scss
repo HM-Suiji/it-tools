@@ -1,115 +1,154 @@
 .not-found {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  text-align: center;
-  height: 100vh;
-  margin: 0;
-  background-attachment: fixed;
-  overflow: hidden;
-
-  .number {
-    margin: 100px 0 0 0;
-    background: #fff;
-    position: relative;
-    font: 900 30vmin 'Consolas';
-    letter-spacing: 5vmin;
-    text-shadow: 2px -1px 0 #000, 4px -2px 0 #0a0a0a, 6px -3px 0 #0f0f0f, 8px -4px 0 #141414, 10px -5px 0 #1a1a1a, 12px -6px 0 #1f1f1f, 14px -7px 0 #242424, 16px -8px 0 #292929;
+  .container-box {
+    background-color: #9dd3a8;
+    display: grid;
+    padding: 144px 0 32px;
+    height: 100vh;
+    color: #161513;
+    font-size: 15px;
+    font-weight: 500;
+    box-sizing: border-box;
   }
 
-  .number::before {
-    background-color: #673ab7;
-    background-image: radial-gradient(closest-side at 50% 50%, #ffc107 100%, rgba(0, 0, 0, 0)), radial-gradient(closest-side at 50% 50%, #e91e63 100%, rgba(0, 0, 0, 0));
-    background-repeat: repeat-x;
-    background-size: 40vmin 40vmin;
-    background-position: -100vmin 20vmin, 100vmin -25vmin;
-    width: 100%;
-    height: 100%;
-    mix-blend-mode: screen;
-    -webkit-animation: moving 10s linear infinite both;
-    animation: moving 10s linear infinite both;
-    display: block;
-    position: absolute;
-    content: "";
+  .main-container {
+    display: grid;
+    align-content: center;
+    row-gap: 40px;
+    max-width: 992px;
+    margin-left: 24px;
+    margin-right: 24px;
   }
 
-  @-webkit-keyframes moving {
-    to {
-      background-position: 100vmin 20vmin, -100vmin -25vmin;
+  .data {
+    text-align: center;
+  }
+
+  .title {
+    font-size: 38px;
+    margin: 12px 0;
+  }
+
+  .button {
+    display: inline-block;
+    margin-top: 32px;
+    padding: 12px 24px;
+    background-color: #161513;
+    color: #fff;
+    border-radius: 48px;
+    transition: 0.4s;
+    text-decoration: none;
+  }
+
+  .button:hover {
+    box-shadow: 0 4px 12px rgba(34, 24, 6, 0.2);
+  }
+
+  .ghost-img {
+    justify-self: center;
+  }
+
+  .ghost-img img {
+    width: 230px;
+    animation: floaty 1.8s infinite alternate;
+  }
+
+  @keyframes floaty {
+    0% {
+      transform: translateY(0);
     }
-  }
 
-  @keyframes moving {
-    to {
-      background-position: 100vmin 20vmin, -100vmin -25vmin;
-    }
-  }
-
-  @keyframes floating {
-    from {
-      transform: translateY(0px);
-    }
-
-    65% {
+    100% {
       transform: translateY(15px);
     }
+  }
 
-    to {
-      transform: translateY(0px);
+  .ghost-shadow {
+    width: 130px;
+    height: 24px;
+    background-color: rgba(60, 52, 38, 0.16);
+    border-radius: 50%;
+    margin: 0 auto;
+    filter: blur(7px);
+    animation: shadow 1.8s infinite alternate;
+  }
+
+  @keyframes shadow {
+    0% {
+      transform: scale(1, 1);
+    }
+
+    100% {
+      transform: scale(0.85, 0.85);
     }
   }
 
-  .text {
-    font: 400 5vmin "Courgette";
+  .main-footer {
+    align-self: flex-end;
+    display: flex;
+    justify-content: center;
+    font-size: 12px;
+    column-gap: 8px;
   }
 
-  .text span {
-    font-size: 10vmin;
-  }
-
-  .mars {
-    left: 0;
-    right: 0;
-    bottom: 0;
-    z-index: -999;
-    position: absolute;
-    height: 27vmin;
-    background: url("/svg/mars.svg") no-repeat bottom center;
-    background-size: cover;
-  }
-
-  .meteor {
-    position: absolute;
-    right: 2vmin;
-    top: 16vmin;
-  }
-
-  .astronaut {
-    position: absolute;
-    top: 18vmin;
-    left: 10vmin;
-    height: 30vmin;
-    animation: floating 3s infinite ease-in-out;
-    -webkit-animation: floating 3s infinite ease-in-out;
-  }
-
-  @media (max-width: 480px) and (min-width: 320px) {
-    .astronaut {
-      top: 2vmin;
+  @media screen and (max-width: 320px) {
+    .container-box {
+      padding-top: 112px;
     }
   }
 
-  .spaceship {
-    position: absolute;
-    bottom: 15vmin;
-    right: 24vmin;
-  }
+  @media screen and (min-width: 992px) {
+    .main-container {
+      grid-template-columns: repeat(2, 1fr);
+      align-items: center;
+      column-gap: 32px;
+    }
 
-  @media (max-width: 480px) and (min-width: 320px) {
-    .spaceship {
-      width: 45vmin;
-      bottom: 18vmin;
+    .data {
+      text-align: initial;
+    }
+
+    .ghost-img img {
+      width: 400px;
+    }
+
+    .ghost-shadow {
+      width: 250px;
+      height: 40px;
     }
   }
 
+  @media screen and (min-width: 1024px) {
+    .main-container {
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .container-box {
+      font-size: 16px;
+    }
+
+    .title {
+      font-size: 80px;
+    }
+
+    .main-footer {
+      font-size: 13px;
+    }
+  }
+
+  @media screen and (min-width: 2048px) {
+    .container-box {
+      zoom: 1.7;
+    }
+
+    .main-container {
+      column-gap: 64px;
+    }
+  }
+
+  @media screen and (min-width: 3840px) {
+    .container-box {
+      zoom: 3.1;
+    }
+  }
 }
