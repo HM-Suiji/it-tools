@@ -1,7 +1,7 @@
 import tools from '@/assets/json/tools.json'
 import { parse } from 'node-html-parser'
 import algoliasearch from 'algoliasearch'
-import { AlgoliaDataItem } from '@/types/AlgoliaDataItem'
+import { AlgoliaDataItem } from '@/types/Algolia.type'
 
 const entries = Object.entries(tools)
 

@@ -5,3 +5,8 @@ export type AlgoliaDataItem = {
 	content: string
 	decision: string
 }
+
+export type AlgoliaComponentProps = {
+	children: React.ReactNode
+	fallback: React.ReactNode
+}
