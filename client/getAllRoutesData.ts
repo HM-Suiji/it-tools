@@ -17,7 +17,8 @@ export const getAllRoutesData = async () => {
 		entries.map(async (item, index): Promise<AlgoliaDataItem> => {
 			return {
 				objectID: index + 1,
-				title: item[0],
+				path: item[0],
+				title: item[1][0],
 				decision: item[1][2],
 				content: await getContent(item[0]),
 			}

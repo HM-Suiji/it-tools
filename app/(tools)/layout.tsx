@@ -6,7 +6,7 @@ import { useEffect, useState } from 'react'
 import { useRouter } from 'next/navigation'
 import Link from 'next/link'
 import { isMobile as _isMobile } from '@/utils'
-import { Calendar, Clock, ToolTags } from '@/components'
+import { Calendar, Clock, Search, ToolTags } from '@/components'
 import './index.scss'
 
 const { Header, Footer, Sider, Content } = Layout
@@ -59,6 +59,7 @@ const ToolsLayout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
 							mode="horizontal"
 							items={menuItems}
 						/>
+						<Search />
 					</div>
 				</div>
 			</Header>
