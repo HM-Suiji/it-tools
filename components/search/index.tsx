@@ -10,13 +10,13 @@ const searchClient = algoliasearch(
 )
 
 const Hit: React.FC<{ hit: AlgoliaDataItem }> = ({ hit }) => (
-	<>
+	<article className="hit">
 		<span>
 			<p>{hit.title}</p>
 			<p>{hit.decision}</p>
 			<p>{hit.content}</p>
 		</span>
-	</>
+	</article>
 )
 
 export const Search: React.FC = () => {
