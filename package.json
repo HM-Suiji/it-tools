@@ -11,10 +11,13 @@
   "dependencies": {
     "@ant-design/cssinjs": "^1.18.0-alpha.0",
     "@ant-design/icons": "^5.2.6",
+    "algoliasearch": "^4.20.0",
     "antd": "^5.11.1",
     "next": "14.0.2",
     "react": "^18",
     "react-dom": "^18",
+    "react-instantsearch": "^7.4.1",
+    "react-instantsearch-nextjs": "^0.1.6",
     "uuid": "^9.0.1"
   },
   "devDependencies": {
