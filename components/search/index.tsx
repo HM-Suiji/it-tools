@@ -40,7 +40,7 @@ const searchClient = {
 } as SearchClient
 
 // TODO: 添加缓存 - store map
-export const Search: React.FC = () => {
+export const Search: React.FC<{ autoFocus?: boolean }> = ({ autoFocus }) => {
 	const [showResult, setShowResult] = useState(false)
 
 	return (
@@ -52,7 +52,7 @@ export const Search: React.FC = () => {
 				insights
 				future={{ preserveSharedStateOnUnmount: true }}>
 				<SearchBox
-					autoFocus
+					autoFocus={autoFocus}
 					onFocus={() => setShowResult(true)}
 					onBlur={() => setShowResult(false)}
 				/>

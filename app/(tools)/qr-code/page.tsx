@@ -1,18 +1,15 @@
-import { useMetaData } from '@/hooks'
-import { Metadata } from 'next'
-import { http } from '@/utils'
-
-export async function generateMetadata(): Promise<Metadata> {
-	const meta = await http('/meta/qr-code')
-	return useMetaData({
-		title: meta[0],
-		keywords: meta[1],
-		description: meta[2],
-	})
-}
+import cliApi from '@/assets/img/cli-api.png'
+import Image from 'next/image'
 
 const QRCode: React.FC = () => {
-	return <>QRCode</>
+	return (
+		<>
+			QrCode
+			<Image
+				src={cliApi}
+				alt="该二维马生成功能基于「草料二维码 - cli.im」"></Image>
+		</>
+	)
 }
 
 export default QRCode
