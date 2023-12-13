@@ -1,18 +1,23 @@
-import { useMetaData } from '@/hooks'
-import { Metadata } from 'next'
-import { http } from '@/utils'
+'use client'
 
-export async function generateMetadata(): Promise<Metadata> {
-	const meta = await http('/meta/date-format')
-	return useMetaData({
-		title: meta[0],
-		keywords: meta[1],
-		description: meta[2],
-	})
-}
+import { debounce } from '@/utils'
+import { Input } from 'antd'
+import { useEffect, useState } from 'react'
 
 const DateFormat: React.FC = () => {
-	return <>DateFormat</>
+	const [inputVal, setInputVal] = useState('')
+	const handleChange = debounce((e: React.ChangeEvent<HTMLInputElement>) => {
+		console.log(e.target.value)
+		setInputVal(e.target.value)
+	}, 200)
+	useEffect(() => {
+		console.log(inputVal)
+	}, [inputVal])
+	return (
+		<>
+			<Input onChange={handleChange} />
+		</>
+	)
 }
 
 export default DateFormat
