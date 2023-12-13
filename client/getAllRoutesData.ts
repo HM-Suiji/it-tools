@@ -29,7 +29,6 @@ export const getAllRoutesData = async () => {
 }
 
 export const uploadToAlgolia = async () => {
-	console.log(111)
 	const client = algoliasearch('KH1UIFB7HU', '207313ceaf39fd7f69507b35623c7a36')
 	const index = client.initIndex('dev_NAME')
 	console.log(222)
