@@ -2,6 +2,7 @@
 
 import '@/assets/style/loading.scss'
 import { useEffect, useState } from 'react'
+import Image from 'next/image'
 
 const Loading: React.FC = () => {
 	const [dots, setDots] = useState('')
@@ -71,7 +72,7 @@ const Loading: React.FC = () => {
 
 					{/* 绘制鱼，是之前画好的鱼svg，源代码可直接复制 */}
 					<div className="fish">
-						<img src="/svg/fish.svg" alt="" />
+						<Image src="/svg/fish.svg" alt="" width={20} height={20} />
 					</div>
 				</div>
 

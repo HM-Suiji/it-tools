@@ -1,4 +1,5 @@
 import Link from 'next/link'
+import Image from 'next/image'
 import '@/assets/style/not-found.scss'
 
 const NotFound: React.FC = () => {
@@ -9,12 +10,17 @@ const NotFound: React.FC = () => {
 					<div className="data">
 						<span>Error 404</span>
 						<h1 className="title">Hey Buddy</h1>
-						<p>We can't seem to find the page <br />you are looking for.</p>
-						<Link href="/" className="button"> Go Home </Link>
+						<p>
+							We can&apos;t seem to find the page <br />
+							you are looking for.
+						</p>
+						<Link href="/" className="button">
+							Go Home
+						</Link>
 					</div>
 
 					<div className="ghost-img">
-						<img src="/ghost-img.png" alt="" />
+						<Image height={250} width={250} src="/ghost-img.png" alt="" />
 						<div className="ghost-shadow"></div>
 					</div>
 				</div>
