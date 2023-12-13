@@ -16,7 +16,7 @@ const Uuid: React.FC = () => {
 		<>
 			<Button onClick={randomUUID}>点击生成uuid</Button>
 			{uuid.map((item: string) => {
-				return <p>{item}</p>
+				return <p key={item}>{item}</p>
 			})}
 		</>
 	)

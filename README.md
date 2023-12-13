@@ -18,7 +18,7 @@ pnpm dev
 bun dev
 ```
 
-### 📁 app(pages)/tools
+### 📁 app/tools
 
 - `uuid` 获取 uuid
 - `base-conversion` 进制转换
@@ -27,3 +27,11 @@ bun dev
 - `base64-image` 图片 与 base64 转换
 - `hearing-test` 听力范围测试
 - `qr-code` 二维码生成
+
+### api
+
+- `/api/uuid`
+  获取 uuid
+  params：time(search) 生成 uuid 的个数
+- `/api/meta/[toolName]`
+  获取工具的 meta 信息
