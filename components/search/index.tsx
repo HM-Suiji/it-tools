@@ -13,8 +13,8 @@ import './index.scss'
 import { useState } from 'react'
 
 const algoliaClient = algoliasearch(
-	'KH1UIFB7HU',
-	'e99483eba93d309d2e97a48d4f80ea2b'
+	process.env.NEXT_PUBLIC_Algolia_Key || '',
+	process.env.NEXT_PUBLIC_Algolia_Value || ''
 )
 
 const searchClient = {
