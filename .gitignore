@@ -40,3 +40,6 @@ next-env.d.ts
 /.vscode/
 
 /client/
+
+**/**.test.js
+**/**.test.ts
