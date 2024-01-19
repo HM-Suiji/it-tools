@@ -1,6 +1,13 @@
 import Link from 'next/link'
 import Image from 'next/image'
 import '@/assets/style/not-found.scss'
+import { Metadata } from 'next'
+
+export const metadata: Metadata = {
+	title: '幻梦IT 工具站 - 页面似乎走丢了',
+	description:
+		'刷新或更正路径后重试',
+}
 
 const NotFound: React.FC = () => {
 	return (
@@ -9,13 +16,13 @@ const NotFound: React.FC = () => {
 				<div className="main-container">
 					<div className="data">
 						<span>Error 404</span>
-						<h1 className="title">Hey Buddy</h1>
+						<h1 className="title">你好 旅人</h1>
 						<p>
-							We can&apos;t seem to find the page <br />
-							you are looking for.
+							这个页面似乎不存在 <br />
+							请刷新或更正路径后重试
 						</p>
 						<Link href="/" className="button">
-							Go Home
+							返回主页
 						</Link>
 					</div>
 
