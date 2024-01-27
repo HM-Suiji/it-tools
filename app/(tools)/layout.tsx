@@ -113,7 +113,7 @@ const ToolsLayout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
 			const existingMetaKeywords = document.querySelector(
 				'meta[name="keywords"]'
 			)
-			existingMetaKeywords?.setAttribute('content', 'jhhhg')
+			existingMetaKeywords?.setAttribute('content', res[1])
 		})
 	}, [])
 
