@@ -101,20 +101,16 @@ const ToolsLayout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
 	const [meta, setMeta] = useState<Meta>()
 
 	useEffect(() => setIsMobile(_isMobile(window)), [])
+
 	useEffect(() => {
-		http(`/meta${location.pathname}`).then((res) => {
+		document &&
 			setMeta({
-				title: res[0],
-				keywords: res[1],
+				title: document.title?.split(' - ')[0] || '',
+				keywords:
+					document
+						.querySelector('meta[name="keywords"]')
+						?.getAttribute('content') || '',
 			})
-			document.title = res[0] + ' - 幻梦IT工具站'
-			const existingMetaDes = document.querySelector('meta[name="description"]')
-			existingMetaDes?.setAttribute('content', res[2])
-			const existingMetaKeywords = document.querySelector(
-				'meta[name="keywords"]'
-			)
-			existingMetaKeywords?.setAttribute('content', res[1])
-		})
 	}, [])
 
 	return (
