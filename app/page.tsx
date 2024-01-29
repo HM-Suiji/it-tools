@@ -1,12 +1,13 @@
 'use client'
 
 import tools from '@/assets/json/tools.json'
+import { toLine } from '@/utils/stringConduct'
 import { Avatar, List } from 'antd'
 import Link from 'next/link'
 // import '@/client/getAllRoutesData'
 
 const data = Object.entries(tools).map((item) => ({
-	title: item[0],
+	title: toLine(item[0]),
 	description: item[1][0],
 }))
 

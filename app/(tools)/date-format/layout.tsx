@@ -1,15 +1,12 @@
 import { getMetaData } from '@/utils'
 import { Metadata } from 'next'
-import { http } from '@/utils'
+import { dateFormat } from '@/assets/json/tools.json'
 
-export async function generateMetadata(): Promise<Metadata> {
-	const meta = await http('/meta/date-format')
-	return getMetaData({
-		title: meta[0],
-		keywords: meta[1],
-		description: meta[2],
-	})
-}
+export const metadata: Metadata = getMetaData({
+	title: dateFormat[0],
+	keywords: dateFormat[1],
+	description: dateFormat[2],
+})
 
 const DateFormatContainer: React.FC<{ children: React.ReactNode }> = ({
 	children,

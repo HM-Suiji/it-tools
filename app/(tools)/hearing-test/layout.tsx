@@ -1,15 +1,12 @@
 import { getMetaData } from '@/utils'
 import { Metadata } from 'next'
-import { http } from '@/utils'
+import { hearingTest } from '@/assets/json/tools.json'
 
-export async function generateMetadata(): Promise<Metadata> {
-	const meta = await http('/meta/hearing-test')
-	return getMetaData({
-		title: meta[0],
-		keywords: meta[1],
-		description: meta[2],
-	})
-}
+export const metadata: Metadata = getMetaData({
+	title: hearingTest[0],
+	keywords: hearingTest[1],
+	description: hearingTest[2],
+})
 
 const HearingTestContainer: React.FC<{ children: React.ReactNode }> = ({
 	children,

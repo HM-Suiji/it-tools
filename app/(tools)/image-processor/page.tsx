@@ -13,7 +13,7 @@ const ImageProcessor = () => {
 		const reader = new FileReader()
 		reader.onload = () => {
 			if (typeof reader.result === 'string') {
-				setImageUrl(reader.result)
+				setBase64String(reader.result)
 				message.success('图片上传成功')
 			}
 
@@ -28,7 +28,6 @@ const ImageProcessor = () => {
 	// 处理base64字符串输入事件
 	const handleBase64InputChange = (e: { target: { value: any } }) => {
 		const inputBase64 = e.target.value
-		setBase64String(inputBase64)
 		setImageUrl(inputBase64) // 在输入框中直接显示base64图片
 	}
 
@@ -46,18 +45,10 @@ const ImageProcessor = () => {
 				<Button>选择图片</Button>
 			</Upload>
 
-			<br />
-
 			{/* 显示上传的图片 */}
-			<div className="w-full h-20 overflow-x-scroll whitespace-normal">
-				{imageUrl}
-			</div>
 			{imageUrl && (
 				<img src={imageUrl} alt="Uploaded" style={{ maxWidth: '100%' }} />
 			)}
-
-			<br />
-			<br />
 
 			{/* 输入base64字符串并显示图片 */}
 			<Input
@@ -66,12 +57,10 @@ const ImageProcessor = () => {
 				value={base64String}
 			/>
 
-			<br />
-
 			{/* 显示输入的base64图片 */}
-			{base64String && (
+			{/* {base64String && (
 				<img src={base64String} alt="Base64" style={{ maxWidth: '100%' }} />
-			)}
+			)} */}
 		</div>
 	)
 }

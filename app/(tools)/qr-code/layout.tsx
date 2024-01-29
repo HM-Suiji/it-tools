@@ -1,15 +1,12 @@
 import { getMetaData } from '@/utils'
 import { Metadata } from 'next'
-import { http } from '@/utils'
+import { qrCode } from '@/assets/json/tools.json'
 
-export async function generateMetadata(): Promise<Metadata> {
-	const meta = await http('/meta/qr-code')
-	return getMetaData({
-		title: meta[0],
-		keywords: meta[1],
-		description: meta[2],
-	})
-}
+export const metadata: Metadata = getMetaData({
+	title: qrCode[0],
+	keywords: qrCode[1],
+	description: qrCode[2],
+})
 
 const QRCodeContainer: React.FC<{ children: React.ReactNode }> = ({
 	children,
