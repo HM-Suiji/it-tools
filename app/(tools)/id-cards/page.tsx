@@ -1,31 +1,51 @@
 'use client'
 
 import { Button, Input } from 'antd'
-import { useState } from 'react'
+import { ChangeEvent, useEffect, useState } from 'react'
 
 const weight = [7, 9, 10, 5, 8, 4, 2, 1, 6, 3, 7, 9, 10, 5, 8, 4, 2]
 const checkCode = [1, 0, 'X', 9, 8, 7, 6, 5, 4, 3, 2]
 
 const IdCards: React.FC = () => {
 	const [id, setId] = useState<string>('')
-	const [preventLeng, setPreventLeng] = useState<number>(0)
+	const [area,setArea] = useState<Area>({
+		province: '',
+		city: '',
+		area: '',
+	})
+
+	useEffect(() => {
+		if (id.length >= 2 && id.length <= 6) {
+			fetch(`/api/area?code=${id.substring(0, 6)}`).then(async (res) =>
+				setArea(await res.json())
+			)
+		}else if (id.length < 2) {
+			setArea({
+				province: '',
+				city: '',
+				area: '',
+			})
+		}
+	}, [id])
+
+	const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
+		const str = e.target.value.toUpperCase()
+		if (/^[0-9X]*$/.test(str)) {
+			setId(str)
+		}
+	}
+
 	return (
 		<div className="flex flex-col items-start">
 			<Input
-				onChange={(e) => {
-					const str = e.target.value
-					const dif = str.charAt(str.length - 1).toUpperCase()
-					if (str.length < preventLeng) setId(id.substring(0, id.length - 1))
-					else if (/[0-9X]/.test(dif)) setId(id + dif)
-					setPreventLeng(str.length)
-				}}
+				onChange={handleChange}
 				value={id}
 				className="w-[27rem] h-[2.4375rem]"
 				placeholder="请输入6位及以上身份证号码，输入越多位数越精准"></Input>
 			<Button onClick={() => setId('')}>刷新</Button>
 			<div>
 				<ul className="">
-					<li>归属地：-</li>
+					<li>归属地：{(area.province + area.city + area.area) || '-'}</li>
 					<li>省份：-</li>
 					<li>城市：-</li>
 					<li>区域：-</li>
