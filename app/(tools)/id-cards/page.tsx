@@ -4,7 +4,7 @@ import { Button, Input } from 'antd'
 import { ChangeEvent, useEffect, useState } from 'react'
 
 const weight = [7, 9, 10, 5, 8, 4, 2, 1, 6, 3, 7, 9, 10, 5, 8, 4, 2]
-const checkCode = [1, 0, 'X', 9, 8, 7, 6, 5, 4, 3, 2]
+const checkCode = ['1', '0', 'X', '9', '8', '7', '6', '5', '4', '3', '2']
 
 const IdCards: React.FC = () => {
 	const [id, setId] = useState<string>('')
@@ -14,7 +14,10 @@ const IdCards: React.FC = () => {
 		city: '',
 		area: '',
 	})
+	const [birthdayCode, setBirthdayCode] = useState<string>()
 	const [birthday, setBirthday] = useState<string>()
+	const [sex, setSex] = useState('')
+	const [flag, setFlag] = useState('')
 
 	useEffect(() => {
 		if (areaCode.length >= 2) {
@@ -25,14 +28,7 @@ const IdCards: React.FC = () => {
 	}, [areaCode])
 
 	useEffect(() => {
-		setAreaCode(id.substring(0, 6))
-		if (id.length < 2) {
-			setArea({
-				province: '',
-				city: '',
-				area: '',
-			})
-		} else if (id.length >= 14) {
+		if (birthdayCode?.length === 8) {
 			const year = +id.substring(6, 10) || 0
 			const month = +id.substring(10, 12) || 0
 			const day = +id.substring(12, 14) || 0
@@ -51,12 +47,49 @@ const IdCards: React.FC = () => {
 			} else {
 				setBirthday('错误')
 			}
+		} else {
+			setBirthday('')
+		}
+	}, [birthdayCode])
+
+	useEffect(() => {
+		setAreaCode(id.substring(0, 6))
+		setBirthdayCode(id.substring(6, 14))
+		if (id.length < 2) {
+			setArea({
+				province: '',
+				city: '',
+				area: '',
+			})
+		} else if (id.substring(16, 17)) {
+			switch (+id.substring(16, 17) % 2) {
+				case 1:
+					setSex('男')
+					break
+				case 0:
+					setSex('女')
+					break
+				default:
+					setSex('')
+			}
+		}
+		if (id.length === 18) {
+			const end = id.substring(17, 18)
+			const tmp = id.substring(0, 17)
+			if (!tmp.includes('X')) {
+				let sum = 0
+				tmp.split('').forEach((item, index) => {
+					sum += +item * weight[index]
+				})
+				if (end === checkCode[sum % 11]) setFlag('是')
+				else setFlag('否')
+			} else setFlag('否')
 		}
 	}, [id])
 
 	const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
 		const str = e.target.value.toUpperCase()
-		if (/^[0-9X]*$/.test(str)) {
+		if (/^[0-9X]*$/.test(str) && str.length <= 18) {
 			setId(str)
 		}
 	}
@@ -76,8 +109,8 @@ const IdCards: React.FC = () => {
 					<li>城市：{area.city || '-'}</li>
 					<li>区域：{area.area || '-'}</li>
 					<li>出生日：{birthday || '-'}</li>
-					<li>性别：-</li>
-					<li>合法：-</li>
+					<li>性别：{sex || '-'}</li>
+					<li>合法：{flag || '-'}</li>
 				</ul>
 			</div>
 			<div>
