@@ -5,8 +5,7 @@ import { Metadata } from 'next'
 
 export const metadata: Metadata = {
 	title: '幻梦IT 工具站 - 页面似乎走丢了',
-	description:
-		'刷新或更正路径后重试',
+	description: '刷新或更正路径后重试',
 }
 
 const NotFound: React.FC = () => {
