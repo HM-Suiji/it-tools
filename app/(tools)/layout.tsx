@@ -38,9 +38,9 @@ const Header = () => {
   }
 
   return (
-    <AHeader className="h-auto px-0 leading-[40px] bg-[#fff]">
+    <AHeader className="h-auto px-0 leading-10 bg-[#fff]">
       <div className="md:grid max-[640px]:flex grid-cols-4 gap-4">
-        <div className="text-blue-400 pl-4 md:!leading-[40px] md:text-xl">
+        <div className="text-blue-400 pl-4 md:!leading-10 md:text-xl">
           <Link href="/">幻梦IT工具站</Link>
         </div>
         <div className="col-span-3 md:flex flex-row-reverse max-[640px]:ml-auto">
@@ -51,7 +51,7 @@ const Header = () => {
             mode="horizontal"
             items={menuItems}
           />
-          <Search />
+          <Search className="!w-auto" />
         </div>
       </div>
     </AHeader>
