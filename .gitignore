@@ -38,8 +38,11 @@ next-env.d.ts
 .eslintrc*
 .prettierrc*
 
-#vscode
+# vscode
 /.vscode/
+
+# IntelliJ IDEA
+/.idea/
 
 /client/
 

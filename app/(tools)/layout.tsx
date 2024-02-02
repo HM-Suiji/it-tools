@@ -1,12 +1,11 @@
 'use client'
 
-import { Breadcrumb, Card, Input, Layout, Menu, MenuProps } from 'antd'
+import { Breadcrumb, Card, Input, Layout } from 'antd'
 import { CopyOutlined } from '@ant-design/icons'
 import { useEffect, useState } from 'react'
-import { useRouter } from 'next/navigation'
 import Link from 'next/link'
 import { isMobile as _isMobile } from '@/utils'
-import { Calendar, Clock, Search, ToolTags } from '@/components'
+import { Calendar, Clock, GlobalHeader, Search, ToolTags } from '@/components'
 import './index.scss'
 
 const {
@@ -17,46 +16,6 @@ const {
 } = Layout
 
 type Meta = { title: string; keywords?: string }
-
-const menuItems: MenuProps['items'] = [
-  {
-    label: '登陆',
-    key: '/login',
-  },
-  {
-    label: '关于',
-    key: '/about',
-  },
-]
-
-const Header = () => {
-  const router = useRouter()
-  const [current, setCurrent] = useState('')
-  const onClickMenu: MenuProps['onClick'] = (e) => {
-    setCurrent(e.key)
-    router.push(e.key)
-  }
-
-  return (
-    <AHeader className="h-auto px-0 leading-10 bg-[#fff]">
-      <div className="md:grid max-[640px]:flex grid-cols-4 gap-4">
-        <div className="text-blue-400 pl-4 md:!leading-10 md:text-xl">
-          <Link href="/">幻梦IT工具站</Link>
-        </div>
-        <div className="col-span-3 md:flex flex-row-reverse max-[640px]:ml-auto">
-          <Menu
-            // defaultSelectedKeys={['mail']}
-            onClick={onClickMenu}
-            selectedKeys={[current]}
-            mode="horizontal"
-            items={menuItems}
-          />
-          <Search className="!w-auto" />
-        </div>
-      </div>
-    </AHeader>
-  )
-}
 
 const Sider = ({ meta }: { meta?: Meta }) => {
   return (
@@ -135,7 +94,9 @@ const ToolsLayout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
 
   return (
     <Layout className="tools-layout h-screen">
-      <Header />
+      <GlobalHeader>
+        <Search />
+      </GlobalHeader>
       <div className="container self-center h-auto">
         <AHeader className="pt-4 text-center h-16 bg-[#7dbcea]">
           <Breadcrumb
