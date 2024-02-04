@@ -1,47 +1,26 @@
-'use client'
-
 import { useFavoriteStore } from '@/stores'
 import { StarFilled } from '@ant-design/icons'
 import { Card, List } from 'antd'
 import Link from 'next/link'
-import { useEffect, useState } from 'react'
-
-let favorites: string | null = localStorage!.getItem('favorite')
+import { useState } from 'react'
 
 const ToolListItem: React.FC<{
   item: Tool
-  changeFavorite: (link: string, current: boolean) => void
-}> = ({ item, changeFavorite }) => {
-  const [isFavorite, setIsFavorite] = useState(false)
-
-  useEffect(() => {
-    const unsub = useFavoriteStore.subscribe((state) => {
-      if (state.favorites.includes(item.link)) {
-        setIsFavorite(true)
-      } else {
-        setIsFavorite(false)
-      }
-    })
-
-    if (favorites) {
-      setIsFavorite(
-        JSON.parse(favorites).state?.favorites.includes(item.link)
-          ? true
-          : false,
-      )
-    }
-    return unsub
-  }, [])
-
+}> = ({ item }) => {
+  const [_isFavorite, _setIsFavorite] = useState(
+    useFavoriteStore.getState().favorites.includes(item.link),
+  )
+  const changeFavorite = useFavoriteStore.use.change()
   return (
     <List.Item>
       <Card
         title={<Link href={item.link}>{item.title}</Link>}
         extra={
           <StarFilled
-            style={{ color: isFavorite ? '#ffa500' : '#a9a9a9' }}
+            style={{ color: _isFavorite ? '#ffa500' : '#a9a9a9' }}
             onClick={() => {
-              changeFavorite(item.link, isFavorite)
+              changeFavorite(item.link, _isFavorite)
+              _setIsFavorite(!_isFavorite)
             }}
           />
         }
@@ -57,8 +36,6 @@ const ToolListItem: React.FC<{
 export const ToolList: React.FC<{
   data: Tool[]
 }> = ({ data }) => {
-  const changeFavorite = useFavoriteStore.use.change()
-
   return (
     <List
       grid={{
@@ -67,9 +44,7 @@ export const ToolList: React.FC<{
       }}
       dataSource={data}
       split={false}
-      renderItem={(item) => (
-        <ToolListItem changeFavorite={changeFavorite} item={item} />
-      )}
+      renderItem={(item) => <ToolListItem item={item} />}
     ></List>
   )
 }
