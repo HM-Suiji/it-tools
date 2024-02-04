@@ -1,3 +1,5 @@
+'use client'
+
 import { useFavoriteStore } from '@/stores'
 import { StarFilled } from '@ant-design/icons'
 import { Card, List } from 'antd'
