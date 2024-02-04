@@ -1,4 +1,6 @@
+import { createSelectors } from '@/utils'
 import { create } from 'zustand'
+import { devtools } from 'zustand/middleware'
 import { immer } from 'zustand/middleware/immer'
 
 type FavoriteStore = {
@@ -8,17 +10,21 @@ type FavoriteStore = {
   clear: () => void
 }
 
-export const useFavoriteStore = create<FavoriteStore>()(
-  immer((set) => ({
-    favorites: [],
-    add: (newItem) =>
-      set((state) => {
-        state.favorites.push(newItem)
-      }),
-    remove: (item) =>
-      set((state) => {
-        state.favorites = state.favorites.filter((_item) => _item !== item)
-      }),
-    clear: () => set({ favorites: [] }),
-  })),
+export const useFavoriteStore = createSelectors(
+  create<FavoriteStore>()(
+    immer(
+      devtools((set) => ({
+        favorites: [],
+        add: (newItem) =>
+          set((state) => {
+            state.favorites.push(newItem)
+          }),
+        remove: (item) =>
+          set((state) => {
+            state.favorites = state.favorites.filter((_item) => _item !== item)
+          }),
+        clear: () => set({ favorites: [] }),
+      })),
+    ),
+  ),
 )

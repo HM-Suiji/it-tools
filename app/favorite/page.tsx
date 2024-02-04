@@ -1,10 +1,12 @@
 'use client'
 
-import { useFavoriteStore } from '@/stores'
+import { useFavoriteStore, useNewToolsStore } from '@/stores'
 import { Button } from 'antd'
 
 const Favorite: React.FC = () => {
   const { favorites, add, remove, clear } = useFavoriteStore()
+  const newToolsStore = useNewToolsStore((state) => state.newTools)
+  const update = useNewToolsStore((state) => state.update)
   return (
     <>
       {favorites.map((item) => (
@@ -16,6 +18,11 @@ const Favorite: React.FC = () => {
       <Button onClick={() => add('乐')}>+乐</Button>
       <Button onClick={() => remove('玩')}>-玩</Button>
       <Button onClick={() => clear()}>clear</Button>
+      <hr />
+      {newToolsStore.map((item) => (
+        <>{item}</>
+      ))}
+      <Button onClick={update}>update</Button>
     </>
   )
 }
