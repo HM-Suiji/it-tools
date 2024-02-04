@@ -5,8 +5,7 @@ import { immer } from 'zustand/middleware/immer'
 
 type FavoriteStore = {
   favorites: string[]
-  add: (newItem: string) => void
-  remove: (item: string) => void
+  change: (item: string, currentStatus: boolean) => void
   clear: () => void
 }
 
@@ -17,15 +16,17 @@ export const useFavoriteStore = createSelectors(
         persist(
           (set) => ({
             favorites: [],
-            add: (newItem) =>
+            change: (item, currentStatus) =>
               set((state) => {
-                state.favorites.push(newItem)
-              }),
-            remove: (item) =>
-              set((state) => {
-                state.favorites = state.favorites.filter(
-                  (_item) => _item !== item,
-                )
+                if (currentStatus) {
+                  state.favorites = state.favorites.filter(
+                    (_item) => _item !== item,
+                  )
+                } else {
+                  if (!state.favorites.includes(item)) {
+                    state.favorites.push(item)
+                  }
+                }
               }),
             clear: () => set({ favorites: [] }),
           }),

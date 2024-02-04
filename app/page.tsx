@@ -7,15 +7,16 @@ import { Layout, Input, Typography } from 'antd'
 import { ToolList } from './../components/tool-list/index'
 import { GlobalHeader } from '@/components'
 
+const { Content, Footer } = Layout
+
+const { Title } = Typography
+
 const data = Object.entries(tools).map((item) => ({
   title: item[1][0],
   link: toLine(item[0]),
   description: item[1][2],
+  isFavorite: false,
 }))
-
-const { Content, Footer } = Layout
-
-const { Title } = Typography
 
 export default function Home() {
   return (
@@ -38,7 +39,7 @@ export default function Home() {
           </div>
         </div>
       </Content>
-      <Footer className="w-[100%]">Footer</Footer>
+      <Footer className="w-full">Footer</Footer>
     </Layout>
   )
 }
