@@ -4,7 +4,7 @@ import { Card, List } from 'antd'
 import Link from 'next/link'
 import { useEffect, useState } from 'react'
 
-let favorites: string | null
+let favorites: string | null = localStorage!.getItem('favorite')
 
 const ToolListItem: React.FC<{
   item: Tool
@@ -56,10 +56,6 @@ export const ToolList: React.FC<{
   data: Tool[]
 }> = ({ data }) => {
   const changeFavorite = useFavoriteStore.use.change()
-  useEffect(() => {
-    // 解决首次加载异常
-    favorites = localStorage.getItem('favorite')
-  }, [])
 
   return (
     <List
