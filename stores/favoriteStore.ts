@@ -1,4 +1,5 @@
 import { create } from 'zustand'
+import { immer } from 'zustand/middleware/immer'
 
 type FavoriteStore = {
   favorites: string[]
@@ -7,13 +8,17 @@ type FavoriteStore = {
   clear: () => void
 }
 
-export const useFavoriteStore = create<FavoriteStore>((set) => ({
-  favorites: [],
-  add: (newItem) =>
-    set((state) => ({ favorites: [...state.favorites, newItem] })),
-  remove: (item) =>
-    set((state) => ({
-      favorites: state.favorites.filter((_item) => _item !== item),
-    })),
-  clear: () => set({ favorites: [] }),
-}))
+export const useFavoriteStore = create<FavoriteStore>()(
+  immer((set) => ({
+    favorites: [],
+    add: (newItem) =>
+      set((state) => {
+        state.favorites.push(newItem)
+      }),
+    remove: (item) =>
+      set((state) => {
+        state.favorites = state.favorites.filter((_item) => _item !== item)
+      }),
+    clear: () => set({ favorites: [] }),
+  })),
+)
