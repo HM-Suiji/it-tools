@@ -1,6 +1,6 @@
 import { createSelectors } from '@/utils'
 import { create } from 'zustand'
-import { devtools } from 'zustand/middleware'
+import { devtools, persist } from 'zustand/middleware'
 import { immer } from 'zustand/middleware/immer'
 
 type RecentUseStore = {
@@ -13,19 +13,24 @@ type RecentUseStore = {
 export const useRecentUseStore = createSelectors(
   create<RecentUseStore>()(
     immer(
-      devtools((set, get) => ({
-        recentUse: [],
-        add: (newItem) => {
-          if (get().recentUse.length >= 20) {
-            get().remove()
-          }
-          set((state) => {
-            state.recentUse.push(newItem)
-          })
-        },
-        remove: () => set((state) => state.recentUse.shift()),
-        clear: () => set({ recentUse: [] }),
-      })),
+      devtools(
+        persist(
+          (set, get) => ({
+            recentUse: [],
+            add: (newItem) => {
+              if (get().recentUse.length >= 20) {
+                get().remove()
+              }
+              set((state) => {
+                state.recentUse.push(newItem)
+              })
+            },
+            remove: () => set((state) => state.recentUse.shift()),
+            clear: () => set({ recentUse: [] }),
+          }),
+          { name: 'recent-use' },
+        ),
+      ),
     ),
   ),
 )
