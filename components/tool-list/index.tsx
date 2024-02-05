@@ -4,12 +4,12 @@ import { Card, List } from 'antd'
 import Link from 'next/link'
 import { useState } from 'react'
 
+const favorites = useFavoriteStore.getState().favorites
+
 const ToolListItem: React.FC<{
   item: Tool
 }> = ({ item }) => {
-  const [_isFavorite, _setIsFavorite] = useState(
-    useFavoriteStore.getState().favorites.includes(item.link),
-  )
+  const [isFavorite, setIsFavorite] = useState(favorites.includes(item.link))
   const changeFavorite = useFavoriteStore.use.change()
   return (
     <List.Item>
@@ -17,10 +17,10 @@ const ToolListItem: React.FC<{
         title={<Link href={item.link}>{item.title}</Link>}
         extra={
           <StarFilled
-            style={{ color: _isFavorite ? '#ffa500' : '#a9a9a9' }}
+            style={{ color: isFavorite ? '#ffa500' : '#a9a9a9' }}
             onClick={() => {
-              changeFavorite(item.link, _isFavorite)
-              _setIsFavorite(!_isFavorite)
+              changeFavorite(item.link, isFavorite)
+              setIsFavorite(!isFavorite)
             }}
           />
         }
