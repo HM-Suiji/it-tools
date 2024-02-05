@@ -3,30 +3,30 @@ import { create } from 'zustand'
 import { devtools, persist } from 'zustand/middleware'
 import { immer } from 'zustand/middleware/immer'
 
-type RecentUseStore = {
-  recentUse: string[]
+type HistoryStore = {
+  history: string[]
   add: (newItem: string) => void
   remove: () => void
   clear: () => void
 }
 
-export const useRecentUseStore = createSelectors(
-  create<RecentUseStore>()(
+export const useHistoryStore = createSelectors(
+  create<HistoryStore>()(
     immer(
       devtools(
         persist(
           (set, get) => ({
-            recentUse: [],
+            history: [],
             add: (newItem) => {
-              if (get().recentUse.length >= 20) {
+              if (get().history.length >= 20) {
                 get().remove()
               }
               set((state) => {
-                state.recentUse.push(newItem)
+                state.history.push(newItem)
               })
             },
-            remove: () => set((state) => state.recentUse.shift()),
-            clear: () => set({ recentUse: [] }),
+            remove: () => set((state) => state.history.shift()),
+            clear: () => set({ history: [] }),
           }),
           { name: 'recent-use' },
         ),

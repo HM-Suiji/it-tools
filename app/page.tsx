@@ -1,7 +1,5 @@
 'use client'
 
-import tools from '@/assets/json/tools.json'
-import { toLine } from '@/utils/stringConduct'
 import { Layout, Input, Typography } from 'antd'
 // import '@/client/getAllRoutesData'
 import { ToolList } from './../components/tool-list/index'
@@ -67,6 +65,7 @@ export default function Home() {
   const [data, setData] = useState<Tool[]>([])
 
   useEffect(() => {
+    // fetch 数据
     setData(_data)
   }, [])
 

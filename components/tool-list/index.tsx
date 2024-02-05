@@ -1,16 +1,25 @@
 import { useFavoriteStore } from '@/stores'
 import { StarFilled } from '@ant-design/icons'
-import { Card, List } from 'antd'
+import { Card, List, Modal } from 'antd'
 import Link from 'next/link'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
+
+type Target = {
+  link: string
+  isFavorite: boolean
+  setIsFavorite: (bool: boolean) => void
+}
 
 const favorites = useFavoriteStore.getState().favorites
 
 const ToolListItem: React.FC<{
   item: Tool
-}> = ({ item }) => {
+  setTarget: (target: Target) => void
+}> = ({ item, setTarget }) => {
   const [isFavorite, setIsFavorite] = useState(favorites.includes(item.link))
-  const changeFavorite = useFavoriteStore.use.change()
+  const handleSwitch = () => {
+    setTarget({ link: item.link, isFavorite, setIsFavorite })
+  }
   return (
     <List.Item>
       <Card
@@ -18,10 +27,7 @@ const ToolListItem: React.FC<{
         extra={
           <StarFilled
             style={{ color: isFavorite ? '#ffa500' : '#a9a9a9' }}
-            onClick={() => {
-              changeFavorite(item.link, isFavorite)
-              setIsFavorite(!isFavorite)
-            }}
+            onClick={handleSwitch}
           />
         }
       >
@@ -36,15 +42,49 @@ const ToolListItem: React.FC<{
 export const ToolList: React.FC<{
   data: Tool[]
 }> = ({ data }) => {
+  const [isModalOpen, setIsModalOpen] = useState(false)
+  const [target, setTarget] = useState<Target>()
+  const changeFavorite = useFavoriteStore.use.change()
+  const handleOk = () => {
+    setIsModalOpen(false)
+    changeFavorite(target!.link, target!.isFavorite)
+    target?.setIsFavorite(false)
+  }
+
+  useEffect(() => {
+    if (target) {
+      if (target.isFavorite) {
+        setIsModalOpen(true)
+      } else {
+        changeFavorite(target.link, target.isFavorite)
+        target.setIsFavorite(true)
+      }
+    }
+  }, [target])
+
   return (
-    <List
-      grid={{
-        column: 4,
-        gutter: 16,
-      }}
-      dataSource={data}
-      split={false}
-      renderItem={(item) => <ToolListItem item={item} />}
-    ></List>
+    <>
+      <List
+        grid={{
+          column: 4,
+          gutter: 16,
+        }}
+        dataSource={data}
+        split={false}
+        renderItem={(item) => (
+          <ToolListItem setTarget={setTarget} item={item} />
+        )}
+      ></List>
+      <Modal
+        title="Basic Modal"
+        open={isModalOpen}
+        onOk={handleOk}
+        onCancel={() => setIsModalOpen(false)}
+      >
+        <p>Some contents...</p>
+        <p>Some contents...</p>
+        <p>Some contents...</p>
+      </Modal>
+    </>
   )
 }
