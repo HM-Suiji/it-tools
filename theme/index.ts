@@ -1,4 +1,3 @@
-import { darkTheme } from './darkThemeConfig'
-import { lightTheme } from './lightThemeConfig'
-
-export { lightTheme, darkTheme }
+export { darkTheme } from './darkThemeConfig'
+export { lightTheme } from './lightThemeConfig'
+export { TAG_COLOR } from './color'

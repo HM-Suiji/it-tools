@@ -1,6 +1,6 @@
 import { useFavoriteStore } from '@/stores'
 import { StarFilled } from '@ant-design/icons'
-import { Card, List, Modal } from 'antd'
+import { Card, List, Modal, message } from 'antd'
 import Link from 'next/link'
 import { useEffect, useState } from 'react'
 
@@ -49,6 +49,7 @@ export const ToolList: React.FC<{
     setIsModalOpen(false)
     changeFavorite(target!.link, target!.isFavorite)
     target?.setIsFavorite(false)
+    message.success('已移出收藏', 2)
   }
 
   useEffect(() => {
@@ -58,6 +59,7 @@ export const ToolList: React.FC<{
       } else {
         changeFavorite(target.link, target.isFavorite)
         target.setIsFavorite(true)
+        message.success('已加入收藏', 2)
       }
     }
   }, [target])
@@ -76,14 +78,15 @@ export const ToolList: React.FC<{
         )}
       ></List>
       <Modal
-        title="Basic Modal"
+        title="提示"
         open={isModalOpen}
         onOk={handleOk}
         onCancel={() => setIsModalOpen(false)}
+        cancelText="取消"
+        okText="确定"
+        okType="danger"
       >
-        <p>Some contents...</p>
-        <p>Some contents...</p>
-        <p>Some contents...</p>
+        <p>是否取消收藏？</p>
       </Modal>
     </>
   )

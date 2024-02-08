@@ -1,4 +1,4 @@
-type generateKeyFunc<T> = (item: T) => any
+type generateKeyFunc<T> = (item: T) => T[keyof T]
 
 /**
  * @author Suiji
@@ -9,20 +9,20 @@ type generateKeyFunc<T> = (item: T) => any
  * groupBy(persons, 'age')
  */
 export const groupBy = <T extends Object>(
-	arr: Array<T>,
-	generateKey: generateKeyFunc<T> | keyof T
+  arr: Array<T>,
+  generateKey: keyof T | generateKeyFunc<T>,
 ): Record<string, T[]> => {
-	const result: Record<string, T[]> = {}
-	if (typeof generateKey === 'string') {
-		let tmp = generateKey
-		generateKey = (item: T) => item[tmp]
-	}
-	for (const person of arr) {
-		const key = (generateKey as generateKeyFunc<T>)(person)
-		if (!result[key]) {
-			result[key] = []
-		}
-		result[key].push(person)
-	}
-	return result
+  const result: Record<string, T[]> = {}
+  if (typeof generateKey === 'string') {
+    let tmp = generateKey
+    generateKey = (item: T) => item[tmp]
+  }
+  for (const person of arr) {
+    const key = (generateKey as generateKeyFunc<T>)(person) as string
+    if (!result[key]) {
+      result[key] = []
+    }
+    result[key].push(person)
+  }
+  return result
 }

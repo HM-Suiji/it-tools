@@ -3,7 +3,6 @@
 import { Button, Form } from 'antd'
 import Link from 'next/link'
 import Image from 'next/image'
-import { cookies } from 'next/headers'
 import LoginImg from '@/assets/img/login-bg.jpg'
 import './index.scss'
 
