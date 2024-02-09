@@ -1,3 +1,5 @@
+'use client'
+
 import { CopyOutlined } from '@ant-design/icons'
 import { message } from 'antd'
 import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter'
