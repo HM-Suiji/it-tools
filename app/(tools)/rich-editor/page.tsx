@@ -43,7 +43,11 @@ const RichEditor: React.FC = () => {
     setEditorState(editorState)
   }
 
-  useEffect(() => setEditorState(BraftEditor.createEditorState(null)), [])
+  useEffect(() => {
+    if (window) {
+      setEditorState(BraftEditor.createEditorState(null))
+    }
+  }, [])
 
   if (window) {
     return (
