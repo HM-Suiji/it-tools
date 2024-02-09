@@ -48,7 +48,9 @@ const RichEditor: React.FC = () => {
   return (
     <>
       <div className="bg-white">
-        <BraftEditor value={editorState} onChange={handleChange} />
+        {editorState && (
+          <BraftEditor value={editorState} onChange={handleChange} />
+        )}
       </div>
       <Button
         onClick={() => {
