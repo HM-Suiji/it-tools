@@ -1,6 +1,6 @@
 'use client'
 
-import { Breadcrumb, Card, Input, Layout } from 'antd'
+import { Breadcrumb, Card, Input, Layout, message } from 'antd'
 import { CopyOutlined } from '@ant-design/icons'
 import { useEffect, useState } from 'react'
 import Link from 'next/link'
@@ -53,12 +53,14 @@ const Widgets = {
       <Input
         addonAfter={<CopyOutlined />}
         value={window ? window.location.href : ''}
-        onClick={(e) => {
-          //TODO 后面得改
-          e.preventDefault()
-          e.currentTarget.select()
-          document.execCommand('copy')
-          e.currentTarget.blur()
+        onClick={() => {
+          const path = window ? window.location.href : ''
+          if (path) {
+            navigator.clipboard
+              .writeText(path)
+              .then(() => message.success('复制成功'))
+              .catch(() => message.error('复制失败,请重试或尝试手动复制'))
+          }
         }}
       />
     </div>
