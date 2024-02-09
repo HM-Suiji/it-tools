@@ -2,7 +2,6 @@
 
 import { QqOutlined, UpCircleOutlined, WechatOutlined } from '@ant-design/icons'
 import { Image } from 'antd'
-import './index.scss'
 
 const sidebarList = [
   {
@@ -22,7 +21,7 @@ export const Sidebar: React.FC = () => {
     <div className="sidebar fixed z-[999] bottom-[15vh] right-0">
       <ul>
         {sidebarList.map((item, index) => (
-          <li key={index} className="group">
+          <li key={index} className="group relative w-10 h-10 text-center">
             {item.icon}
             <div className="hidden-box hidden group-hover:block -translate-y-1/2 right-10 absolute p-3">
               <Image
@@ -35,7 +34,7 @@ export const Sidebar: React.FC = () => {
             </div>
           </li>
         ))}
-        <li>
+        <li className=" w-10 h-10 text-center">
           <UpCircleOutlined
             className="text-2xl"
             onClick={() => scrollTo({ top: 0 })}

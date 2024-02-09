@@ -6,7 +6,6 @@ export async function GET(_request: Request) {
     title: item[1][0],
     link: toLine(item[0]),
     description: item[1][2],
-    isFavorite: false,
   }))
   return new Response(JSON.stringify(data))
 }

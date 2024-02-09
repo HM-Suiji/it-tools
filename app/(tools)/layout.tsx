@@ -93,7 +93,7 @@ const ToolsLayout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
   }, [])
 
   return (
-    <Layout className="tools-layout h-screen">
+    <Layout className="tools-layout min-h-screen">
       <GlobalHeader>
         <Search />
       </GlobalHeader>
