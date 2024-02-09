@@ -1,11 +1,7 @@
 import Loading from '@/app/loading'
 
 const TestOne: React.FC = () => {
-	return (
-		<>
-			<Loading></Loading>
-		</>
-	)
+  return <div className="h-[300vh]"></div>
 }
 
 export default TestOne

@@ -1,0 +1,11 @@
+.sidebar {
+  ul {
+    li {
+      @apply relative w-10 h-10 text-center;
+
+      svg {
+        // @apply w-[1.375rem] h-auto;
+      }
+    }
+  }
+}

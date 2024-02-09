@@ -5,6 +5,7 @@ import StyledComponentsRegistry from '../lib/AntdRegistry'
 import { ConfigProvider } from 'antd'
 import { lightTheme } from '@/theme'
 import { Init } from '@/components/init'
+import { Sidebar } from './../components/sidebar/index'
 
 export const metadata: Metadata = {
   title: '幻梦IT 工具站',
@@ -22,7 +23,10 @@ export default function RootLayout({
     <html lang="zh-CN">
       <body>
         <StyledComponentsRegistry>
-          <ConfigProvider theme={lightTheme}>{children}</ConfigProvider>
+          <ConfigProvider theme={lightTheme}>
+            {children}
+            <Sidebar />
+          </ConfigProvider>
         </StyledComponentsRegistry>
         <Init />
       </body>
