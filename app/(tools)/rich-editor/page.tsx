@@ -45,26 +45,27 @@ const RichEditor: React.FC = () => {
 
   useEffect(() => setEditorState(BraftEditor.createEditorState(null)), [])
 
-  return (
-    <>
-      <div className="bg-white">
-        {editorState && (
+  if (window) {
+    return (
+      <>
+        <div className="bg-white">
           <BraftEditor value={editorState} onChange={handleChange} />
+        </div>
+        <Button
+          onClick={() => {
+            setIsFinished(true)
+            parseCode(editorState.toHTML())
+          }}
+        >
+          完成编辑
+        </Button>
+        {isFinished && (
+          <CodeShow code={parseCode(editorState.toHTML())} language="html" />
         )}
-      </div>
-      <Button
-        onClick={() => {
-          setIsFinished(true)
-          parseCode(editorState.toHTML())
-        }}
-      >
-        完成编辑
-      </Button>
-      {isFinished && (
-        <CodeShow code={parseCode(editorState.toHTML())} language="html" />
-      )}
-    </>
-  )
+      </>
+    )
+  }
+  return <>该页面只内在客户端渲染</>
 }
 
 export default RichEditor
