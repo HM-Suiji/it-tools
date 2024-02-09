@@ -4,7 +4,6 @@ import { CodeShow } from '@/components'
 import { Button } from 'antd'
 import BraftEditor, { EditorState } from 'braft-editor'
 import 'braft-editor/dist/index.css'
-import { parse } from 'node-html-parser'
 import { useEffect, useState } from 'react'
 
 const parseCode = (code: string) => {
@@ -16,18 +15,22 @@ const parseCode = (code: string) => {
     .replaceAll('>', '>\n')
     .trim()
     .split('\n')
-  // console.log(target)
-  // for (const line of target) {
-  //   result.push('  '.repeat(indentLevel) + line)
-  //   console.log(line)
-  //   if (!line.includes('/>')) {
-  //     indentLevel++
-  //   } else if (line.includes('/>') && indentLevel > 0) {
-  //     indentLevel--
-  //   }
-  // }
-  // console.log(result)
-  result = target
+    .filter((line) => line.trim() !== '')
+  let preTab = true
+  for (const line of target) {
+    console.log(line)
+    if (!line.includes('</')) {
+      if (preTab) {
+        preTab = false
+      } else {
+        indentLevel++
+        preTab = true
+      }
+    } else if (line.includes('</') && indentLevel > 0) {
+      indentLevel--
+    }
+    result.push('  '.repeat(indentLevel) + line)
+  }
 
   return result.join('\n')
 }
