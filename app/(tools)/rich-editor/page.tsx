@@ -40,7 +40,7 @@ const RichEditor: React.FC = () => {
   const [isFinished, setIsFinished] = useState(false)
 
   const handleChange = (editorState: EditorState) => {
-    setEditorState(editorState)
+    if (window) setEditorState(editorState)
   }
 
   useEffect(() => {
