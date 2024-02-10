@@ -38,15 +38,15 @@ const parseCode = (code: string) => {
 const RichEditor: React.FC = () => {
   const [editorState, setEditorState] = useState<EditorState>()
   const [isFinished, setIsFinished] = useState(false)
+  const [result, setResult] = useState('')
 
   const handleChange = (editorState: EditorState) => {
-    if (window) setEditorState(editorState)
+    setEditorState(editorState)
+    if (!isFinished) setIsFinished(false)
   }
 
   useEffect(() => {
-    if (window) {
-      setEditorState(BraftEditor.createEditorState(null))
-    }
+    setEditorState(BraftEditor.createEditorState(null))
   }, [])
 
   if (window) {
@@ -58,14 +58,12 @@ const RichEditor: React.FC = () => {
         <Button
           onClick={() => {
             setIsFinished(true)
-            parseCode(editorState.toHTML())
+            setResult(parseCode(editorState.toHTML()))
           }}
         >
           完成编辑
         </Button>
-        {isFinished && (
-          <CodeShow code={parseCode(editorState.toHTML())} language="html" />
-        )}
+        {isFinished && <CodeShow code={result} language="html" />}
       </>
     )
   }
