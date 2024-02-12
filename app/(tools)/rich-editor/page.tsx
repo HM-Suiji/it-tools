@@ -2,8 +2,6 @@
 
 import { CodeShow } from '@/components'
 import { Button } from 'antd'
-import BraftEditor, { EditorState } from 'braft-editor'
-import 'braft-editor/dist/index.css'
 import { useEffect, useState } from 'react'
 
 const parseCode = (code: string) => {
@@ -36,38 +34,21 @@ const parseCode = (code: string) => {
 }
 
 const RichEditor: React.FC = () => {
-  const [editorState, setEditorState] = useState<EditorState>()
   const [isFinished, setIsFinished] = useState(false)
-  const [result, setResult] = useState('')
 
-  const handleChange = (editorState: EditorState) => {
-    setEditorState(editorState)
-    if (!isFinished) setIsFinished(false)
-  }
-
-  useEffect(() => {
-    setEditorState(BraftEditor.createEditorState(null))
-  }, [])
-
-  if (window) {
-    return (
-      <>
-        <div className="bg-white">
-          <BraftEditor value={editorState} onChange={handleChange} />
-        </div>
-        <Button
-          onClick={() => {
-            setIsFinished(true)
-            setResult(parseCode(editorState.toHTML()))
-          }}
-        >
-          完成编辑
-        </Button>
-        {isFinished && <CodeShow code={result} language="html" />}
-      </>
-    )
-  }
-  return <>该页面只内在客户端渲染</>
+  return (
+    <>
+      <div className="bg-white"></div>
+      <Button
+        onClick={() => {
+          setIsFinished(true)
+        }}
+      >
+        完成编辑
+      </Button>
+      {/* {isFinished && <CodeShow code={html} language="html" />} */}
+    </>
+  )
 }
 
 export default RichEditor

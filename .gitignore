@@ -9,6 +9,7 @@
 # testing
 /coverage
 /app/test
+/__test__/
 
 # next.js
 /.next/
@@ -27,7 +28,7 @@ yarn-debug.log*
 yarn-error.log*
 
 # local env files
-.env*.local
+# .env*.local
 
 # vercel
 .vercel
@@ -45,6 +46,3 @@ next-env.d.ts
 /.idea/
 
 /client/
-
-**/**.test.js
-**/**.test.ts
