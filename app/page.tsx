@@ -2,7 +2,7 @@
 
 import { Layout, Input, Typography } from 'antd'
 // import '@/client/getAllRoutesData'
-import { ToolList } from './../components/tool-list/index'
+import { ToolList } from '../components/tool/list/index'
 import { GlobalHeader } from '@/components'
 import { useEffect, useState } from 'react'
 import { http } from '@/utils'
