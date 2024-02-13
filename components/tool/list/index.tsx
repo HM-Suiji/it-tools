@@ -45,6 +45,7 @@ export const ToolList: React.FC<{
 }> = ({ data }) => {
   const [isModalOpen, setIsModalOpen] = useState(false)
   const [target, setTarget] = useState<Target>()
+  const [column, setColumn] = useState(4)
   const changeFavorite = useFavoriteStore.use.change()
   const handleOk = () => {
     setIsModalOpen(false)
@@ -65,11 +66,13 @@ export const ToolList: React.FC<{
     }
   }, [target])
 
+  useEffect(() => setColumn(isMobile(window) ? 2 : 4), [])
+
   return (
     <>
       <List
         grid={{
-          column: isMobile(window) ? 2 : 4,
+          column,
           gutter: 16,
         }}
         dataSource={data}
