@@ -27,7 +27,7 @@ body {
 }
 
 /* 修复一些 Ant Design 部分 CSS 样式冲突 */
-.ant-input-group-addon {
+.search-input .ant-input-group-addon {
   background-color: #1677ff !important;
 }
 

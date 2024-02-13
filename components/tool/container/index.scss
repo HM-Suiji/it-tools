@@ -1,0 +1,33 @@
+.tool-container {
+  @apply bg-white;
+
+  .tool-meta {
+    background-color: #f5f5f5;
+
+    ul {
+      @apply text-right;
+
+      li {
+        @apply mx-4 inline-block;
+      }
+    }
+  }
+
+  .tool-wrapper {
+    @apply p-[10px] border;
+    box-shadow: 4px 4px 8px #eaeaea;
+
+    .tool-box {
+      min-height: 500px;
+    }
+
+    .tool-intro {
+      @apply border-t pt-[10px];
+
+      h2 {
+        @apply text-left pl-2 mb-2;
+        border-left: 4px solid #009100;
+      }
+    }
+  }
+}

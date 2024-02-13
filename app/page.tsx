@@ -2,7 +2,7 @@
 
 import { Layout, Input } from 'antd'
 // import '@/client/getAllRoutesData'
-import { GlobalHeader,GlobalFooter,ToolList } from '@/components'
+import { GlobalHeader, GlobalFooter, ToolList } from '@/components'
 import { useEffect, useState } from 'react'
 import { http } from '@/utils'
 
@@ -23,10 +23,10 @@ export default function Home() {
         <div className="w-full">
           <div className="w-[600px] m-auto mt-10 mb-4">
             <Input.Search
+              className="search-input"
               placeholder="请搜索工具名或标签"
               enterButton
               allowClear
-              className=""
             />
           </div>
           <div>

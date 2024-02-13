@@ -57,7 +57,6 @@ const RichEditor: React.FC = () => {
       >
         完成编辑
       </Button>
-      {Math.random()}
       {isFinished && <CodeShow code={parseCode(value)} language="html" />}
     </>
   )

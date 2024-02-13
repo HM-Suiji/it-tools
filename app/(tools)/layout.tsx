@@ -5,7 +5,14 @@ import { CopyOutlined } from '@ant-design/icons'
 import { useEffect, useState } from 'react'
 import Link from 'next/link'
 import { isMobile as _isMobile } from '@/utils'
-import { Calendar, Clock, GlobalHeader, Search, ToolTags } from '@/components'
+import {
+  Calendar,
+  Clock,
+  GlobalHeader,
+  Search,
+  ToolContainer,
+  ToolTags,
+} from '@/components'
 import './index.scss'
 
 const {
@@ -36,7 +43,7 @@ const Sider = ({ meta }: { meta?: Meta }) => {
 
 const Container = ({ children }: { children: React.ReactNode }) => {
   return (
-    <AContent className="md:col-span-3 !w-full text-center bg-[#108ee9] content-algolia">
+    <AContent className="md:col-span-3 !w-full text-center content-algolia">
       <div className="pr-4 pl-4">{children}</div>
     </AContent>
   )
@@ -95,12 +102,12 @@ const ToolsLayout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
   }, [])
 
   return (
-    <Layout className="tools-layout min-h-screen">
+    <Layout className="tools-layout min-h-screen bg-[#fefefe]">
       <GlobalHeader>
         <Search />
       </GlobalHeader>
       <div className="container self-center h-auto">
-        <AHeader className="pt-4 text-center h-16 bg-[#7dbcea]">
+        <AHeader className="pt-4 text-center h-16 bg-[#fefefe]">
           <Breadcrumb
             className="text-sm"
             items={[
@@ -113,8 +120,13 @@ const ToolsLayout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
             ]}
           />
         </AHeader>
-        <Layout className="md:grid md:grid-cols-4 h-full" hasSider={!isMobile}>
-          <Container>{children}</Container>
+        <Layout
+          className="md:grid md:grid-cols-4 h-full bg-[#fefefe]"
+          hasSider={!isMobile}
+        >
+          <Container>
+            <ToolContainer>{children}</ToolContainer>
+          </Container>
           {!isMobile && <Sider meta={meta} />}
         </Layout>
       </div>
