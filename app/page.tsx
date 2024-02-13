@@ -21,7 +21,7 @@ export default function Home() {
       <GlobalHeader />
       <Content className="flex flex-col container items-center">
         <div className="w-full">
-          <div className="w-[600px] m-auto mt-10 mb-4">
+          <div className="md:w-[600px] m-auto mt-10 mb-4">
             <Input.Search
               className="search-input"
               placeholder="请搜索工具名或标签"

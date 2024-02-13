@@ -27,8 +27,8 @@ export const GlobalFooter: React.FC = () => {
         </li>
       </ul>
       <div className="friend-link mx-[10%] flex">
-        <span className="mx-6">友情链接:</span>
-        <ul className="flex">
+        <span className="md:mx-6">友情链接:</span>
+        <ul className="md:flex">
           <li className="mx-4">
             <Link href="https://uutool.cn/">UU在线工具</Link>
           </li>

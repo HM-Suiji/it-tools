@@ -1,4 +1,5 @@
 import { useFavoriteStore } from '@/stores'
+import { isMobile } from '@/utils'
 import { StarFilled } from '@ant-design/icons'
 import { Card, List, Modal, message } from 'antd'
 import Link from 'next/link'
@@ -68,7 +69,7 @@ export const ToolList: React.FC<{
     <>
       <List
         grid={{
-          column: 4,
+          column: isMobile(window) ? 2 : 4,
           gutter: 16,
         }}
         dataSource={data}
