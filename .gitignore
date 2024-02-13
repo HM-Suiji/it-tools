@@ -45,4 +45,7 @@ next-env.d.ts
 # IntelliJ IDEA
 /.idea/
 
+# Error Page
+/components/braft-editor/**
+
 /client/

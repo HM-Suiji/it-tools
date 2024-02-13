@@ -3,6 +3,11 @@
 import { CodeShow } from '@/components'
 import { Button } from 'antd'
 import { useEffect, useState } from 'react'
+import dynamic from 'next/dynamic'
+
+const Editor = dynamic(() => import('@/components/braft-editor'), {
+  ssr: false,
+})
 
 const parseCode = (code: string) => {
   let result = []
@@ -34,11 +39,14 @@ const parseCode = (code: string) => {
 }
 
 const RichEditor: React.FC = () => {
+  const [value, setValue] = useState('')
   const [isFinished, setIsFinished] = useState(false)
 
   return (
     <>
-      <div className="bg-white"></div>
+      <div className="bg-white">
+        <Editor setValue={setValue} />
+      </div>
       <Button
         onClick={() => {
           setIsFinished(true)
@@ -46,7 +54,7 @@ const RichEditor: React.FC = () => {
       >
         完成编辑
       </Button>
-      {/* {isFinished && <CodeShow code={html} language="html" />} */}
+      {isFinished && <CodeShow code={parseCode(value)} language="html" />}
     </>
   )
 }

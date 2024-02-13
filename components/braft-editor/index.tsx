@@ -1,14 +1,20 @@
-import BraftEditor, { EditorState } from 'braft-editor'
-import { useRef, useState } from 'react'
+'use client'
 
-const Editor: React.FC = () => {
-  const [value, setValue] = useState(BraftEditor.createEditorState(''))
+import BraftEditor, { EditorState } from 'braft-editor'
+import { Dispatch, useState } from 'react'
+import 'braft-editor/dist/index.css'
+
+const Editor: React.FC<{ setValue: Dispatch<any> }> = ({ setValue }) => {
+  const [editorState, setEditorState] = useState(
+    BraftEditor.createEditorState(''),
+  )
 
   const onChange = (editorState: EditorState) => {
-    setValue(editorState)
+    setEditorState(editorState) // 保存编辑器内容
+    setValue(editorState.toHTML())
   }
 
-  return <BraftEditor value={value} onChange={onChange} />
+  return <BraftEditor value={editorState} onChange={onChange} />
 }
 
-export { Editor as BraftEditor }
+export default Editor
