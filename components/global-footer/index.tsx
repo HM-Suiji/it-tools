@@ -27,8 +27,8 @@ export const GlobalFooter: React.FC = () => {
         </li>
       </ul>
       <div className="m-auto text-center">
-        Copyright © 2024 {process.env.a || ''} All Rights Reserved{' '}
-        {process.env.NEXT_PUBLIC_INTERNET_CONTENT_PROVIDER || ''}
+        Copyright © 2024 {process.env.NEXT_PUBLIC_COMPANY || ''} All Rights
+        Reserved {process.env.NEXT_PUBLIC_INTERNET_CONTENT_PROVIDER || ''}
       </div>
     </Footer>
   )
