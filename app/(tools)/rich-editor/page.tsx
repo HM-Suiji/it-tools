@@ -21,7 +21,6 @@ const parseCode = (code: string) => {
     .filter((line) => line.trim() !== '')
   let preTab = true
   for (const line of target) {
-    console.log(line)
     if (!line.includes('</')) {
       if (preTab) {
         preTab = false
@@ -45,7 +44,11 @@ const RichEditor: React.FC = () => {
   return (
     <>
       <div className="bg-white">
-        <Editor setValue={setValue} />
+        <Editor
+          setValue={setValue}
+          isFinished={isFinished}
+          setIsFinished={setIsFinished}
+        />
       </div>
       <Button
         onClick={() => {
@@ -54,6 +57,7 @@ const RichEditor: React.FC = () => {
       >
         完成编辑
       </Button>
+      {Math.random()}
       {isFinished && <CodeShow code={parseCode(value)} language="html" />}
     </>
   )

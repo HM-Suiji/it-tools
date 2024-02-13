@@ -7,12 +7,12 @@ const { Header } = Layout
 
 const menuItems: MenuProps['items'] = [
   {
-    label: '登陆',
-    key: '/login',
+    label: '标签',
+    key: '/tags',
   },
   {
-    label: '关于',
-    key: '/about',
+    label: '我的收藏',
+    key: '/favorite',
   },
 ]
 
@@ -27,7 +27,7 @@ export const GlobalHeader: React.FC<{ children?: React.ReactNode }> = ({
   }
 
   return (
-    <Header className="h-auto w-full px-0 leading-10 bg-white">
+    <Header className="h-auto w-full px-0 leading-10 bg-white border-b">
       <div className="md:grid max-[640px]:flex grid-cols-4 gap-4">
         <div className="text-blue-400 pl-4 md:!leading-10 md:text-xl">
           <Link href="/">幻梦IT工具站</Link>

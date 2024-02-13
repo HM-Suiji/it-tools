@@ -1,15 +1,12 @@
 'use client'
 
-import { Layout, Input, Typography } from 'antd'
+import { Layout, Input } from 'antd'
 // import '@/client/getAllRoutesData'
-import { ToolList } from '../components/tool/list/index'
-import { GlobalHeader } from '@/components'
+import { GlobalHeader,GlobalFooter,ToolList } from '@/components'
 import { useEffect, useState } from 'react'
 import { http } from '@/utils'
 
 const { Content, Footer } = Layout
-
-const { Title } = Typography
 
 export default function Home() {
   const [data, setData] = useState<Tool[]>([])
@@ -20,26 +17,35 @@ export default function Home() {
   }, [])
 
   return (
-    <Layout className="items-center bg-white">
+    <Layout className="items-center bg-white global-root-page">
       <GlobalHeader />
       <Content className="flex flex-col container items-center">
         <div className="w-full">
-          <div>
-            <Input></Input>
+          <div className="w-[600px] m-auto mt-10 mb-4">
+            <Input.Search
+              placeholder="请搜索工具名或标签"
+              enterButton
+              allowClear
+              className=""
+            />
           </div>
           <div>
-            <div>
-              <Title level={4}>最近使用</Title>
-              <ToolList data={data} />
+            <div className="group-box">
+              <div className="group-box-title">最近使用</div>
+              <div>
+                <ToolList data={data} />
+              </div>
             </div>
-            <div>
-              <Title level={4}>最新</Title>
-              <ToolList data={data} />
+            <div className="group-box">
+              <div className="group-box-title">最新</div>
+              <div>
+                <ToolList data={data} />
+              </div>
             </div>
           </div>
         </div>
       </Content>
-      <Footer className="w-full">Footer</Footer>
+      <GlobalFooter />
     </Layout>
   )
 }

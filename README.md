@@ -1,12 +1,21 @@
-## 多功能工具
+# 多功能工具
 
 这是一个 [Next.js](https://nextjs.org/) 项目 bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
-UI 基于 Antd 与 TailwindCSS
+UI 基于 [Antd](https://ant.design/) 与 [TailwindCSS](https://www.tailwindcss.cn/)
+数据持久化基于 [Zustand](https://docs.pmnd.rs/zustand/getting-started/introduction)
+
+项目灵感基于 [UU在线工具](https://uutool.cn/)
 
 ## Getting Started
 
-First, run the development server:
+install dependencies:
+
+```bash
+yarn install
+```
+
+run the development server:
 
 ```bash
 npm run dev
@@ -18,20 +27,24 @@ pnpm dev
 bun dev
 ```
 
+run the production server:
+
+```bash
+npm run build
+npm run start
+# or
+yarn build
+yarn start
+# or
+pnpm build
+pnpm start
+# or
+bun build
+bun start
+```
+
+deploy to vercel:
+
 ### 📁 app/tools
 
-- `uuid` 获取 uuid
-- `base-conversion` 进制转换
-- `date-format` 时间格式化
-- `id-cards` 身份证校验
-- `base64-image` 图片 与 base64 转换
-- `hearing-test` 听力范围测试
-- `qr-code` 二维码生成
-
-### api
-
-- `/api/uuid`
-  获取 uuid
-  params：time(search) 生成 uuid 的个数
-- `/api/meta/[toolName]`
-  获取工具的 meta 信息
+见 `/assets/json/tools.json`
