@@ -1,11 +1,10 @@
 import type { Metadata } from 'next'
-import './globals.css'
-
 import StyledComponentsRegistry from '../lib/AntdRegistry'
 import { ConfigProvider } from 'antd'
 import { lightTheme } from '@/theme'
 import { Init } from '@/components/init'
 import { Sidebar } from './../components/sidebar/index'
+import './globals.css'
 
 export const metadata: Metadata = {
   title: '幻梦IT 工具站',

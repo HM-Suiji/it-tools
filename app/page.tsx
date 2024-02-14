@@ -6,7 +6,7 @@ import { GlobalHeader, GlobalFooter, ToolList } from '@/components'
 import { useEffect, useState } from 'react'
 import { http } from '@/utils'
 
-const { Content, Footer } = Layout
+const { Content } = Layout
 
 export default function Home() {
   const [data, setData] = useState<Tool[]>([])
