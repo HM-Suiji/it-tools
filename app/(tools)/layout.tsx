@@ -8,6 +8,7 @@ import { isMobile as _isMobile } from '@/utils'
 import {
   Calendar,
   Clock,
+  GlobalFooter,
   GlobalHeader,
   Search,
   ToolContainer,
@@ -15,12 +16,7 @@ import {
 } from '@/components'
 import './index.scss'
 
-const {
-  Header: AHeader,
-  Footer: AFooter,
-  Sider: ASider,
-  Content: AContent,
-} = Layout
+const { Header: AHeader, Sider: ASider, Content: AContent } = Layout
 
 type Meta = { title: string; keywords?: string }
 
@@ -130,7 +126,7 @@ const ToolsLayout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
           {!isMobile && <Sider meta={meta} />}
         </Layout>
       </div>
-      <AFooter className="text-center bg-[#f0f3fa]">Footer</AFooter>
+      <GlobalFooter />
     </Layout>
   )
 }
