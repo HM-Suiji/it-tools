@@ -5,7 +5,7 @@ import {
   QqOutlined,
   WechatOutlined,
 } from '@ant-design/icons'
-import { FloatButton, Image } from 'antd'
+import { FloatButton, Image, Tooltip } from 'antd'
 import { useState } from 'react'
 
 export const Sidebar: React.FC = () => {
@@ -20,8 +20,10 @@ export const Sidebar: React.FC = () => {
         style={{ right: 24 }}
         icon={<CustomerServiceOutlined />}
       >
-        <FloatButton
-          tooltip={
+        <Tooltip
+          color="white"
+          placement="left"
+          title={
             <div className="bg-white">
               <Image src="/img/mock-qrcode.png" preview={false} />
               <div className="text-black w-full text-center">
@@ -29,10 +31,13 @@ export const Sidebar: React.FC = () => {
               </div>
             </div>
           }
-          icon={<WechatOutlined />}
-        />
-        <FloatButton
-          tooltip={
+        >
+          <FloatButton icon={<WechatOutlined />} />
+        </Tooltip>
+        <Tooltip
+          color="white"
+          placement="left"
+          title={
             <div className="bg-white">
               <Image
                 src="/img/mock-qrcode.png"
@@ -44,8 +49,18 @@ export const Sidebar: React.FC = () => {
               </div>
             </div>
           }
-          icon={<QqOutlined />}
-        />
+        >
+          <FloatButton
+            icon={
+              <a
+                href="https://wpa.qq.com/msgrd?v=3&uin=1704802092&site=qq&menu=yes&jumpflag=1"
+                target="_blank"
+              >
+                <QqOutlined />
+              </a>
+            }
+          />
+        </Tooltip>
         <FloatButton.BackTop visibilityHeight={0} />
       </FloatButton.Group>
     </>
