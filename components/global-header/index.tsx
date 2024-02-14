@@ -34,7 +34,6 @@ export const GlobalHeader: React.FC<{ children?: React.ReactNode }> = ({
         </div>
         <div className="col-span-3 md:flex flex-row-reverse max-[640px]:ml-auto">
           <Menu
-            // defaultSelectedKeys={['mail']}
             onClick={onClickMenu}
             selectedKeys={[current]}
             mode="horizontal"

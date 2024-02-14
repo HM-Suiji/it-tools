@@ -46,7 +46,7 @@ export const GlobalFooter: React.FC = () => {
           </li>
         </ul>
       </div>
-      <div className="m-auto text-center">
+      <div className="m-auto text-center mt-4">
         Copyright © 2024 {process.env.NEXT_PUBLIC_COMPANY || ''} All Rights
         Reserved {process.env.NEXT_PUBLIC_INTERNET_CONTENT_PROVIDER || ''}
       </div>
