@@ -79,7 +79,7 @@ const BMI: React.FC = () => {
         <Image src="/img/bmi.jpg" alt="" height={200} width={350} />
       </div>
       <hr className="my-6" />
-      <ToolTextArea title="关于BMI身体质量指数：">
+      <ToolTextArea extraStyle title="关于BMI身体质量指数：">
         BMI指数（即身体质量指数，简称体质指数又称体重，英文为Body Mass
         Index，简称BMI），是用体重公斤数除以身高米数平方得出的数字，是目前国际上常用的衡量人体胖瘦程度以及是否健康的一个标准。主要用于统计用途，当我们需要比较及分析一个人的体重对于不同高度的人所带来的健康影响时，BMI值是一个中立而可靠的指标。
         <br />
@@ -93,7 +93,7 @@ const BMI: React.FC = () => {
         </a>
         。
       </ToolTextArea>
-      <ToolTextArea title="BMI体质指数不适合人群如下：">
+      <ToolTextArea extraStyle title="BMI体质指数不适合人群如下：">
         1. 未满18岁；
         <br />
         2. 是运动员；
