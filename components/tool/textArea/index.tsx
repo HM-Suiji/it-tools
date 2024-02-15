@@ -1,5 +1,5 @@
 export const ToolTextArea: React.FC<{
-  children: React.ReactNode
+  children?: React.ReactNode
   title: string
 }> = ({ children, title }) => {
   return (
