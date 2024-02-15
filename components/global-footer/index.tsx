@@ -5,7 +5,7 @@ const { Footer } = Layout
 
 export const GlobalFooter: React.FC = () => {
   return (
-    <Footer className="w-full">
+    <Footer className="w-screen">
       <ul className="flex justify-evenly mb-6">
         <li>
           <Link href="/about">关于我们</Link>

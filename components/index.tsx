@@ -1,6 +1,7 @@
 export { Calendar } from './calendar'
 export { ToolTags } from './tool/tags'
 export { ToolList } from './tool/list'
+export { ToolTextArea } from './tool/textArea'
 export { ToolContainer } from './tool/container'
 export { Clock } from './clock'
 export { Search } from './search'
