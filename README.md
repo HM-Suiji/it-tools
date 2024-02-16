@@ -7,6 +7,11 @@ UI 基于 [Antd](https://ant.design/) 与 [TailwindCSS](https://www.tailwindcss.
 
 项目灵感基于 [UU在线工具](https://uutool.cn/)
 
+## 版权所属
+
+本工具箱由个人前端工程师--穗积开发，喜欢的小伙伴们可以直接拿去使用或二次开发哟，点个 star 就行啦
+欢迎联系我：QQ1704802092
+
 ## Getting Started
 
 install dependencies:
