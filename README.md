@@ -1,11 +1,16 @@
 # 多功能工具
 
+项目语言：TypeScript - React
+
+已部署在 Vercel : [幻梦工具站](https://tools.hm-illusion.top)
+
 这是一个 [Next.js](https://nextjs.org/) 项目 bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
 UI 基于 [Antd](https://ant.design/) 与 [TailwindCSS](https://www.tailwindcss.cn/)
 数据持久化基于 [Zustand](https://docs.pmnd.rs/zustand/getting-started/introduction)
 
 项目灵感基于 [UU在线工具](https://uutool.cn/)
+数学工具基于 [MathTool](https://www.imathtool.com/)
 
 ## 版权所属
 
