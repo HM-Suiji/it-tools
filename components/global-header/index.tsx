@@ -1,4 +1,6 @@
-import { MenuProps, Layout, Menu } from 'antd'
+import { UserOutlined } from '@ant-design/icons'
+import { MenuProps, Layout, Menu, Avatar } from 'antd'
+import { getServerSession } from 'next-auth'
 import Link from 'next/link'
 import { useRouter } from 'next/navigation'
 import { useState } from 'react'
@@ -21,6 +23,7 @@ export const GlobalHeader: React.FC<{ children?: React.ReactNode }> = ({
 }) => {
   const router = useRouter()
   const [current, setCurrent] = useState('')
+
   const onClickMenu: MenuProps['onClick'] = (e) => {
     setCurrent(e.key)
     router.push(e.key)

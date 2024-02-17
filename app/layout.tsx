@@ -3,7 +3,9 @@ import StyledComponentsRegistry from '../lib/AntdRegistry'
 import { ConfigProvider } from 'antd'
 import { lightTheme } from '@/theme'
 import { Init } from '@/components/init'
-import { Sidebar } from './../components/sidebar/index'
+import { Sidebar } from '@/components/sidebar'
+import SessionProvider from '@/components/SessionProvider'
+import { getServerSession } from 'next-auth'
 import './globals.css'
 
 export const metadata: Metadata = {
@@ -13,17 +15,19 @@ export const metadata: Metadata = {
   keywords: '工具,实用,免费,便捷,IT,uuid,二维码生成,数学计算,图片处理',
 }
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: {
   children: React.ReactNode
 }) {
+  const session = await getServerSession()
+
   return (
     <html lang="zh-CN">
       <body>
         <StyledComponentsRegistry>
           <ConfigProvider theme={lightTheme}>
-            {children}
+            <SessionProvider session={session}>{children}</SessionProvider>
             <Sidebar />
           </ConfigProvider>
         </StyledComponentsRegistry>

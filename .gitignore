@@ -52,4 +52,4 @@ next-env.d.ts
 /client/
 
 # auth
-/app/api/auth*
+# /app/api/auth*
