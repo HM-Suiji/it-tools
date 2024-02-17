@@ -1,7 +1,7 @@
 import type { NextAuthOptions } from 'next-auth'
 import GithubProvider from 'next-auth/providers/github'
 import CredentialsProvider from 'next-auth/providers/credentials'
-import { users } from '@/config/users'
+// import { users } from '@/config/users'
 
 const credentialsProvider = CredentialsProvider({
   name: 'Credentials',
@@ -26,6 +26,14 @@ const credentialsProvider = CredentialsProvider({
     const username = credentials?.username
     const password = credentials?.password
     const email = credentials?.email
+
+    const users = [
+      {
+        name: 'admin',
+        password: '1234',
+        email: 'admin@example.com',
+      },
+    ]
 
     users.forEach((user) => {
       if (
