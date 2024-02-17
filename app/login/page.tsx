@@ -5,7 +5,7 @@ import Link from 'next/link'
 import Image from 'next/image'
 import LoginImg from '@/assets/img/login-bg.jpg'
 import './index.scss'
-import { signIn } from 'next-auth/react'
+// import { signIn } from 'next-auth/react'
 
 type FieldType = {
   username?: string
@@ -16,13 +16,13 @@ type FieldType = {
 const onFinish = (values: any) => {
   console.log('Success:', values)
   localStorage.setItem('user-msg', values)
-  signIn('credentials', {
-    username: 'Suiji',
-    password: 'nextauth',
-    email: '1704802092@qq.com',
-    csrfToken:
-      '574ba580e8c9c5f79acc6f0c8cd5a85986d79d6726392c6fa01b9a83ffd796a9',
-  })
+  // signIn('credentials', {
+  //   username: 'Suiji',
+  //   password: 'nextauth',
+  //   email: '1704802092@qq.com',
+  //   csrfToken:
+  //     '574ba580e8c9c5f79acc6f0c8cd5a85986d79d6726392c6fa01b9a83ffd796a9',
+  // })
 }
 
 const onFinishFailed = (errorInfo: any) => {

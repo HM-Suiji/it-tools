@@ -13,13 +13,17 @@ const ConsoleLayout: React.FC<{ children: React.ReactNode }> = ({
   // console.log(session)
   return (
     <Layout className="h-screen">
-      <Sider width="18%" className="!bg-white">
+      <Sider width="18%" className="!bg-white relative">
+        <div className="logo text-center text-4xl leading-[3rem] font-black h-12 m-2 text-purple-400">
+          Illusion
+        </div>
         <SiderMenu defaultSelectedKey="aa" />
+        <div className="absolute w-full bottom-0">user-message</div>
       </Sider>
       <Layout>
         <Header className="bg-white">Header</Header>
         <Content>
-          <div className="flex">{children}</div>
+          <div className="flex p-4">{children}</div>
         </Content>
         <Footer className="text-center">
           Power by{' '}
