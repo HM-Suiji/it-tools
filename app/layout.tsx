@@ -4,8 +4,6 @@ import { ConfigProvider } from 'antd'
 import { lightTheme } from '@/theme'
 import { Init } from '@/components/init'
 import { Sidebar } from '@/components/sidebar'
-import SessionProvider from '@/components/SessionProvider'
-import { getServerSession } from 'next-auth'
 import './globals.css'
 
 export const metadata: Metadata = {
@@ -20,14 +18,12 @@ export default async function RootLayout({
 }: {
   children: React.ReactNode
 }) {
-  const session = await getServerSession()
-
   return (
     <html lang="zh-CN">
       <body>
         <StyledComponentsRegistry>
           <ConfigProvider theme={lightTheme}>
-            <SessionProvider session={session}>{children}</SessionProvider>
+            {children}
             <Sidebar />
           </ConfigProvider>
         </StyledComponentsRegistry>
