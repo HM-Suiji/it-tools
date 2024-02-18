@@ -1,6 +1,4 @@
-import { UserOutlined } from '@ant-design/icons'
-import { MenuProps, Layout, Menu, Avatar } from 'antd'
-import { getServerSession } from 'next-auth'
+import { MenuProps, Layout, Menu } from 'antd'
 import Link from 'next/link'
 import { useRouter } from 'next/navigation'
 import { useState } from 'react'
