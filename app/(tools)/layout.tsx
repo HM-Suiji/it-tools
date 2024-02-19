@@ -98,12 +98,12 @@ const ToolsLayout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
   }, [])
 
   return (
-    <Layout className="tools-layout min-h-screen bg-[#fefefe]">
+    <Layout className="tools-layout min-h-screen !bg-[#fefefe]">
       <GlobalHeader>
         <Search className="!w-40 sm:!w-auto" />
       </GlobalHeader>
       <div className="container self-center h-auto">
-        <AHeader className="pt-4 text-center h-16 bg-[#fefefe]">
+        <AHeader className="pt-4 text-center !h-16 !bg-[#fefefe]">
           <Breadcrumb
             className="text-sm"
             items={[
@@ -117,7 +117,7 @@ const ToolsLayout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
           />
         </AHeader>
         <Layout
-          className="md:grid md:grid-cols-4 h-full bg-[#fefefe]"
+          className="md:grid md:grid-cols-4 h-full !bg-[#fefefe]"
           hasSider={!isMobile}
         >
           <Container>

@@ -28,7 +28,7 @@ export const GlobalHeader: React.FC<{ children?: React.ReactNode }> = ({
   }
 
   return (
-    <Header className="h-auto w-full px-0 leading-10 bg-white border-b">
+    <Header className="!h-auto w-full px-0 !leading-10 !bg-white border-b">
       <div className="md:grid max-[640px]:flex grid-cols-4 gap-4">
         <div className="text-[#b67fdd] pl-4 md:!leading-10 md:text-xl ">
           <Link className="hover:text-[#9470dc]" href="/">
