@@ -1,3 +1,7 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 @import url('https://fonts.googleapis.com/css?family=Montserrat:300,400,700');
 
 :root {
@@ -49,7 +53,3 @@ table.common-table tbody td {
 a {
   color: black !important;
 }
-
-@tailwind base;
-@tailwind components;
-@tailwind utilities;

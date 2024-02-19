@@ -1,8 +1,8 @@
 import type { Metadata } from 'next'
+import StyledComponentsRegistry from '../lib/AntdRegistry'
 import { Init } from '@/components/init'
 import { Sidebar } from '@/components/sidebar'
 import './globals.css'
-import { AntdRegistry } from '@ant-design/nextjs-registry'
 
 export const metadata: Metadata = {
   title: '幻梦IT 工具站',
@@ -19,10 +19,10 @@ export default async function RootLayout({
   return (
     <html lang="zh-CN">
       <body>
-        <AntdRegistry>
+        <StyledComponentsRegistry>
           {children}
           <Sidebar />
-        </AntdRegistry>
+        </StyledComponentsRegistry>
         <Init />
       </body>
     </html>
